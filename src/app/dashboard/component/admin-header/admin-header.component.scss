@@ -1,0 +1,36 @@
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    background-color: aquamarine;
+    padding:0 20px ;
+    position: static;
+}
+.left{
+    font-size: 25px;
+    font-weight: 800;
+}
+.right{
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 500;
+}
+.rightlist {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    list-style: none;
+    gap:10px ;
+}
+
+
+a{
+    font-style: none;
+    text-decoration: none;
+    color: black;
+}

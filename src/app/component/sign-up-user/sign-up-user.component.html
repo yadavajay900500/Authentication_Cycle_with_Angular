@@ -1,0 +1,75 @@
+
+<div class="signUp">
+    <div class="signUpWraaper">
+        <div class="card-body auth-card">
+            <div class="auth-avatar">
+                <img src="https://pluspng.com/img-png/user-png-icon-account-avatar-human-male-man-men-people-person-download-svg-download-png-edit-icon-512.png"
+                    alt="user" class="user-image">
+            </div>
+            <!-- <mat-card>
+                <mat-card-content> -->
+                    <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+                        <h2 class="head2">Register</h2>
+                        <!-- <mat-error >
+                    The username and password were not recognized
+                </mat-error> -->
+                        <mat-form-field appearance="outline">
+                            <input matInput type="fullname" placeholder="Fullname" formControlName="fullname"
+                                name="fullname"  required>
+
+                            <mat-error *ngIf="submitted && f['fullname'].errors">
+                                <div *ngIf="f['fullname'].errors['required']">Fullname is required</div>
+                                <div *ngIf="f['fullname'].errors['pattern']">fullname must be in charecters</div>
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <input matInput type="email" placeholder="Email" formControlName="email" name="email"
+                                required>
+
+                            <mat-error *ngIf="submitted && f['email'].errors">
+                                <div *ngIf="f['email'].errors['required']">Email is required</div>
+                                <div *ngIf="f['email'].errors['pattern']">example: abc@example.com</div>
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <input matInput type="password" placeholder="Password" formControlName="password"
+                                name="password" required>
+
+
+                            <mat-error *ngIf="submitted && f['password'].errors">
+                                <div *ngIf="f['password'].errors['required']">Password is required</div>
+                                <div *ngIf="f['password'].errors['minlength']">
+                                    Password must be at least 6 characters
+                                </div>
+                                <!-- <div *ngIf="f['password'].errors['maxlength']">
+                                    password must not exceed 12 characters
+                                </div>
+                                <div *ngIf="f['password'].errors['pattern']">
+                                    <ul>
+                                        <li>password must contain atleast one special character</li>
+                                        <li>password must contain atleast one uppercase alphabet</li>
+                                        <li>password must contain atleast one lowercase alphabet</li>
+                                        <li>password must contain a number</li>
+                                    </ul>
+                                </div> -->
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <input matInput type="password" placeholder="Confirm Password"
+                                formControlName="confirmPassword" name="confirm password" required>
+
+                            <mat-error *ngIf="submitted && f['confirmPassword'].errors">
+                                <div *ngIf="f['confirmPassword'].errors['required']">Confirm password is required</div>
+                                <div *ngIf="f['confirmPassword'].errors['matching']">
+                                    Confirm Password does not match
+                                </div>
+                            </mat-error>
+                        </mat-form-field>
+                        <button mat-raised-button color="warn" class="signupBtn">Signup</button>
+                    </form>
+                    <div class="text-center login">
+                        Don`t have an account ? <a routerLink="/">Login</a> here.
+                      </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+
+      
+
+
+
+
+
+
+
+ 
+
+<h2>All New Registration !</h2>
+<div class="main">
+         <table mat-tabl>
+            <thead>
+              <tr>
+                <th>Sr.No</th>
+                <th>Name</th>
+                <th>Email</th>
+                <!-- <th>Gender</th> -->
+                <th>Role</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let object of newApplication; index as i;">
+                <td>{{i+1}}
+                </td>
+                <td>{{object.fullname}}</td>
+                <td>{{object.email }}</td>
+                <td>{{object.role }}</td>
+                <td><div class="status">
+                    <div class="approved">
+                        <button mat-raised-button class="demo-button">
+                            Approved
+                          </button>
+                    </div>
+                    <div class="pendding">
+                        <button mat-raised-button class="demo-button">
+                            Pending
+                          </button>
+                    </div>
+                    <div class="rejected">
+                        <button mat-raised-button class="demo-button">
+                            Rejected
+                          </button>
+                    </div>
+                </div>
+            </td>
+
+                
+              </tr>
+            </tbody>
+          </table>
+        </div>
+

@@ -1,0 +1,99 @@
+.login{
+  color: #fff;
+}
+.login a{
+  color: #d39e00;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.para{
+margin:0;
+padding:0
+}
+
+.signUp{
+display: grid;
+place-items: center;
+ height: 100vh;
+}
+
+.signUpWraaper{
+display: flex;
+width: 40%;
+height: 65%;
+margin:0 50px;
+justify-content: center;
+align-items: center;
+background-color: rgb(182, 55, 55);
+border: 2px solid grey;
+border-radius: 20px;
+background-image: url("/assets/electronics/signupImg.jpg");
+
+
+}
+
+
+mat-card {
+max-width: 400px;
+margin: 2em auto;
+text-align: center;
+}
+
+mat-form-field {
+display: block;
+}
+
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+background-color: white;
+border-radius: 5px;
+}
+
+.head2{
+color:white;
+text-align:center
+}
+
+.signupBtn{
+margin-left: 10rem;
+}
+
+
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body{
+  
+  background-color: rgb(143, 143, 196);
+}
+.auth-card{
+  background: #c31432;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #240b36, #c31432);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #240b36, #c31432); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border-radius: 5px;
+  box-shadow: 0px 0px 30px #f7f7f7;
+}
+label{
+  color: #fff;
+  font-weight: 700;
+}
+.user-image{
+  height: 70px;
+}
+.auth-avatar{
+  text-align: center;
+  margin-top: -50px;
+}
+.auth{
+  margin-top: 120px;
+  border: none;
+  border-radius: 6px;
+}
+.btn-my{
+  background-color: #d39e00;
+  border-color: #d39e00;
+  color: #fff;
+  margin-top: 10px;
+}
+.simple-keyboard {
+  max-width: 850px;
+}

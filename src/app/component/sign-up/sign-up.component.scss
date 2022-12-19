@@ -1,0 +1,20 @@
+.signUp{
+    display: grid;
+    place-items: center;
+     height: 100vh;
+}
+
+.signupWrapper{
+    display: flex;
+    width: 50%;
+    height: 65%;
+    justify-content: center;
+    align-items: center;
+    background-color: aquamarine;
+    border: 2px solid grey;
+    border-radius: 20px;
+    background-image: url("/assets/signupImg.jpg");
+    
+
+
+}

@@ -1,0 +1,29 @@
+table{
+    margin: 20px auto;
+}
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+ 
+    height: inherit;
+    margin: 15px;
+
+  }
+  th, td {
+    padding: 0 10px;
+  }
+  .main{
+    width: 80%;
+    padding: 20px;
+  }
+  .status{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    align-content: space-between;
+    gap: 5px;
+    padding: 1px 5px;
+    margin: 5px   ;
+  }
+ 
