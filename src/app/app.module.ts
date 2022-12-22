@@ -17,7 +17,6 @@ import { InterceptorService } from './_authGuard/interceptor.service';
 import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
 import { FormsModule } from "@angular/forms";
 import { AdminProfileComponent } from './pages/admin-profile/admin-profile.component'
-import { ToDoListComponent } from './component/to-do-list/to-do-list.component';
 import { ModalComponent } from './component/modal/modal.component';
 
 
@@ -32,7 +31,6 @@ import { ModalComponent } from './component/modal/modal.component';
     SignUpUserComponent,
     ModalComponent,
     AdminProfileComponent,
-    ToDoListComponent
   ],
   imports: [
     BrowserModule,
@@ -47,6 +45,7 @@ import { ModalComponent } from './component/modal/modal.component';
 
 
   ],
+  
   providers: [
      // Tell angular to use this interceptor
     //  { provide: HTTP_INTERCEPTORS, useClass: AuthGuard, multi: true }

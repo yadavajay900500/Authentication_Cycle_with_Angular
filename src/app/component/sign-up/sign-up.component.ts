@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators ,Form} from '@angular/forms';
 import { SignInSignUpService } from 'src/app/_services/sign-in-sign-up.service';
 import Validation from "../../utility/validation"
-
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-sign-up',
@@ -22,8 +22,11 @@ export class SignUpComponent implements OnInit {
   submitted = false;
 
   constructor(private formBuilder: FormBuilder,
-    private signUpService:SignInSignUpService
+    private signUpService:SignInSignUpService,
+    private _snackBar: MatSnackBar
     ) { }
+
+
 
  
   ngOnInit(): void {
@@ -70,6 +73,19 @@ export class SignUpComponent implements OnInit {
 
     console.log(JSON.stringify(this.form.value, null, 2));
     this.signUpService.userSignUp(body)
+    .subscribe({
+      next: (result: any) => {
+        console.log("Successfull Signup")
+        console.log(result)
+        const data=result.msg
+          // this._snackBar.open(data);
+          this.onReset()
+      },
+      error: (e) => {
+        console.log("SignUp Failes!", e)
+      }
+    })
+    
     
   }
 

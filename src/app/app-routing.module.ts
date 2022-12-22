@@ -20,7 +20,7 @@ const routes: Routes = [
     path:"signIn", component:SignInComponent
   },
   {
-    path:"profile",component:ProfileComponent,canActivate: [AuthGuard] 
+    path:"profile",component:ProfileComponent 
 
   },
   {

@@ -23,12 +23,16 @@ export class AppService {
   }
 
   static TOKEN_KEY="TOKEN"
+  static REFRESH_TOKEN_KEY="REFRESH_TOKEN"
   static BASEURL="http://localhost:5050/"
 
 
   
   static setToken = (token: string) => {
     sessionStorage.setItem(AppService.TOKEN_KEY, token)
+  }
+  static setRefrshToken = (token: string) => {
+    sessionStorage.setItem(AppService.REFRESH_TOKEN_KEY, token)
   }
   static removeToken = () => {
     sessionStorage.removeItem(AppService.TOKEN_KEY)
@@ -46,6 +50,11 @@ export class AppService {
     return false;
   }
 
+  static logout(){
+      window.sessionStorage.clear();
+    }
+  }
 
 
-}
+
+

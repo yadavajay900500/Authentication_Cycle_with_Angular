@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminDiplayComponent } from './pages/admin-diplay/admin-diplay.component';
 import { AdminHomeComponent } from './pages/admin-home/admin-home.component';
 import { NewUserListComponent } from './pages/new-user-list/new-user-list.component';
+import { ToDoListComponent } from './pages/to-do-list/to-do-list.component';
 import { UserListComponent } from './pages/user-list/user-list.component';
 
 const routes: Routes = [
@@ -14,6 +15,9 @@ const routes: Routes = [
   },
   {
     path:"newRegister",component:NewUserListComponent
+  },
+  {
+    path:"todoList",component:ToDoListComponent
   }
   
 ];

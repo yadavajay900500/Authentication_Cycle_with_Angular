@@ -1,0 +1,93 @@
+
+.todoDispaly{
+  display: flex;
+}
+
+
+
+.example-spacer {
+    flex: 1 1 auto;
+  }
+  
+  .todoHead{
+    margin-left:36rem;
+    font-weight: 900;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+  }
+  
+  .addTaskbar{
+    width:40rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:2rem;
+    border-radius:4px;
+  }
+  
+  .addTaskbarmain{
+   align-items: center;
+   /* margin-left: 23rem; */
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap:10px;
+   /* background-color: blueviolet; */
+   width:auto;
+   height:80px
+   
+  }
+  
+  .lists{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap:5px;
+    
+  }
+  
+  .allList{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    gap:10px
+  }
+  
+  .mainList{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    gap:10rem;
+    background-color: green;
+    height:100px;
+    width:650px;
+    margin-top:5px;
+    
+  }
+  .listitems{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap:10px;
+   
+  }
+  
+  .text{
+    color:white;
+    font-size: 20px;
+    
+  }
+  
+  .table{
+    width:50rem;
+    margin-left: 20rem;
+    
+  }
+  
+  td{
+    border-bottom: none
+  }
+  
+  .btn{
+    margin-left: 10px;
+  }

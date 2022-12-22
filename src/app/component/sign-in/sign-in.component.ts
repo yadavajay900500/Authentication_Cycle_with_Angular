@@ -4,14 +4,18 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators, Form 
 import { Router } from '@angular/router';
 import { AppService } from 'src/app/app.service';
 import { SignInSignUpService } from 'src/app/_services/sign-in-sign-up.service';
-import Validation from '../../utility/validation'
+import Validation from '../../utility/validation';
+import { JwtHelperService } from "@auth0/angular-jwt";
+
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.scss']
 })
+
 export class SignInComponent implements OnInit {
 
+  helper = new JwtHelperService();
 
   form: FormGroup = new FormGroup({
     fullname: new FormControl(''),
@@ -27,8 +31,9 @@ export class SignInComponent implements OnInit {
   BASEURL: string;
   constructor(private formBuilder: FormBuilder,
     private signInService: SignInSignUpService,
-    private http: HttpClient, private router: Router
-  ) { 
+    private http: HttpClient, private router: Router,
+    private rootService: AppService
+  ) {
     this.rootservice = AppService
     this.BASEURL = AppService.BASEURL
   }
@@ -59,25 +64,30 @@ export class SignInComponent implements OnInit {
 
   onSubmit(body: any): void {
     this.submitted = true;
-    console.log("@@@@@@@@@@@", body)
     if (this.form.invalid) {
       return;
     }
-    console.log(JSON.stringify(this.form.value, null, 2));
     this.signInService.userSignIn(body)
-    .subscribe({
-      next: (res: any) => {
-        console.log("Successfull Login !", res.userData)
-        const id=res.userData._id
-        // alert("Successfull Login !")
-        this.rootservice.setToken(res.userData)
-        this.router.navigateByUrl("/admin")
-      },
-      error: (e) => {
-        console.log("Something Wrong !", e)
-        this.router.navigateByUrl('/logIn');
-      }
-    })
+      .subscribe({
+        next: (res: any) => {
+          console.log("Successfull Login !", res.userData)
+          this.rootservice.setToken(res.userData.TOKEN)
+          this.rootservice.setRefrshToken(res.userData.refreshToken)
+          this.rootService.setData(res.userData)
+          const data = this.helper.decodeToken(res.userData.TOKEN);
+          const  {roles} = data.data
+
+          if (roles[1] === "admin") {
+            this.router.navigateByUrl("/admin")
+          } else {
+            this.router.navigateByUrl("/profile")
+          }
+        },
+        error: (e) => {
+          console.log("Something Wrong !", e)
+          this.router.navigateByUrl('/signIn');
+        }
+      })
   }
 
   onReset(): void {

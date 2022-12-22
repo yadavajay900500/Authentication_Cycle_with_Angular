@@ -20,71 +20,20 @@ export class SignInSignUpService {
   userSignUp(body: any) {
     console.log("mmmmmmmmmmmmmmmm", body)
     return this.http.post(`${this.BASEURL}signUp`, body)
-      .subscribe({
-        next: (res: any) => {
-          console.log("Successfull Signup")
-        },
-        error: (e) => {
-          console.log("SignUp Failes!", e)
-        }
-      })
   }
   
   userSignIn(body: any) {
     console.log(">>>>>>>>>>",body)
-    return this.http.post(`${this.BASEURL}SignIn`, body)
-      // .subscribe({
-      //   next: (res: any) => {
-      //     console.log("Successfull Login !", res.userData)
-      //     const id=res.userData._id
-      //     // alert("Successfull Login !")
-      //     this.rootservice.setToken(res.userData)
-      //     this.router.navigateByUrl("/admin")
-      //   },
-      //   error: (e) => {
-      //     console.log("Something Wrong !", e)
-      //     this.router.navigateByUrl('/logIn');
-      //   }
-      // })
+    return this.http.post(`${this.BASEURL}signIn`, body)
+     
   }
-
-  toDoListAdd(body: any) {
-    return this.http.post(`${this.BASEURL}add`, body)
-      .subscribe({
-        next: (res: any) => {
-          console.log("Successfull Add Data !", res.userData)
-        },
-        error: (e) => {
-          console.log("Something Wrong !", e)
-        }
-      })
+// 888888888888888888888888888888888888888888888888
+GenerateRefreshToken() {
+  let input = {
+    "jwtToken": this.rootservice.getToken('TOKEN'),
+    "refreshToken": this.rootservice.getToken('REFRESH_TOKEN')
   }
-  toDoListRemove(body: any) {
-    return this.http.post(`${this.BASEURL}remove`, body)
-      .subscribe({
-        next: (res: any) => {
-          console.log("Successfull Remove !", res.userData)
-        },
-        error: (e) => {
-          console.log("Something Wrong !", e)
-        }
-      })
-  }
-  toDoListUpadate(body: any) {
-    return this.http.post(`${this.BASEURL}update`, body)
-      .subscribe({
-        next: (res: any) => {
-          console.log("Successfull Update !", res.userData)
-        },
-        error: (e) => {
-          console.log("Something Wrong !", e)
-        }
-      })
-  }
-
-  allNewUser() {
-    return this.http.get(`${this.BASEURL}newUserApplication`)
-      
-  }
-
+  console.log("tokennnnnnnnnnn",input)
+  return this.http.post(`${this.BASEURL}signIn` + 'refresh', input);
+}
 }

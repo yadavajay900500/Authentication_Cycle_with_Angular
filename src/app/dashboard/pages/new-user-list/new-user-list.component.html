@@ -1,56 +1,96 @@
-
-      
-
-
-
-
-
-
-
- 
-
 <h2>All New Registration !</h2>
-<div class="main">
-         <table mat-tabl>
-            <thead>
-              <tr>
-                <th>Sr.No</th>
-                <th>Name</th>
-                <th>Email</th>
-                <!-- <th>Gender</th> -->
-                <th>Role</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let object of newApplication; index as i;">
-                <td>{{i+1}}
-                </td>
-                <td>{{object.fullname}}</td>
-                <td>{{object.email }}</td>
-                <td>{{object.role }}</td>
-                <td><div class="status">
-                    <div class="approved">
-                        <button mat-raised-button class="demo-button">
-                            Approved
-                          </button>
-                    </div>
-                    <div class="pendding">
-                        <button mat-raised-button class="demo-button">
-                            Pending
-                          </button>
-                    </div>
-                    <div class="rejected">
-                        <button mat-raised-button class="demo-button">
-                            Rejected
-                          </button>
-                    </div>
+<div class="card-box">
+
+  <div class="main">
+    <div class="row">
+      <div class="table-responsive">
+
+
+        <table>
+          <thead>
+            <tr>
+              <th>Sr.No</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let object of newApplication; index as i;">
+              <td>{{i+1}}
+              </td>
+              <td>{{object.fullname}}</td>
+              <td>{{object?.email }}</td>
+              <td>{{object?.role }}</td>
+              <td>{{object?.action?.status }}</td>
+              <td>
+                <div class="status">
+                  <div class="approved">
+                    <button mat-raised-button class="demo-button" (click)="accountApproves(object._id)">
+                      Approved
+                    </button>
+                  </div>
+                  <div class="pendding">
+                    <button mat-raised-button class="demo-button" (click)="accountPendding(object._id)">
+                      Pending
+                    </button>
+                  </div>
+                  <div class="rejected">
+                    <button mat-raised-button class="demo-button" (click)="accountRejected(object._id)">
+                      Rejected
+                    </button>
+                  </div>
                 </div>
-            </td>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-                
-              </tr>
-            </tbody>
-          </table>
-        </div>
+    </div>
+  </div>
+</div>
 
+<!-- 
+<div class="card-box">
+  <div class="row">
+    <div class="col-sm-4">
+      <a routerLink="create" id="addbtn" class="btn btn-success btn-rounded">Add New</a>
+    </div>
+  </div>
+  <br>
+
+  <div class="row">
+    <div class="table-responsive">
+
+      <table class="table table-bordered" id="datatable" role="grid">
+        <thead class="bg-primary text-white">
+          <tr role="row">
+            <th>Code</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Designation</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let object of newApplication" ; index as i;>
+            <td>{{object.fullname}}</td>
+            <td>{{object.email }}</td>
+            <td>{{object.role }}</td>
+            <td>
+              <div class="status">
+            
+            <td><button routerLink="edit/{{object.code}}" class="btn btn-primary">Edit</button> | <button (click)="delete(object.code)" class="btn btn-danger">Delete</button></td>
+            
+            </div>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div> -->
