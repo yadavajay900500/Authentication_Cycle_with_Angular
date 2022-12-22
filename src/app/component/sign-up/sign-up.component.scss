@@ -1,20 +1,127 @@
-.signUp{
-    display: grid;
-    place-items: center;
-     height: 100vh;
-}
+// .signUp{
+//     display: grid;
+//     place-items: center;
+//      height: 100vh;
+// }
 
-.signupWrapper{
-    display: flex;
-    width: 50%;
-    height: 65%;
-    justify-content: center;
-    align-items: center;
-    background-color: aquamarine;
-    border: 2px solid grey;
-    border-radius: 20px;
-    background-image: url("/assets/signupImg.jpg");
+// .signupWrapper{
+//     display: flex;
+//     width: 50%;
+//     height: 65%;
+//     justify-content: center;
+//     align-items: center;
+//     background-color: aquamarine;
+//     border: 2px solid grey;
+//     border-radius: 20px;
+//     background-image: url("/assets/signupImg.jpg");
     
 
 
+// }
+
+.login{
+    color: #fff;
+  }
+  .login a{
+    color: #d39e00;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+.para{
+  margin:0;
+  padding:0
+}
+
+.signUp{
+  display: grid;
+  place-items: center;
+   height: 100vh;
+}
+
+.signupWrapper{
+  display: flex;
+  width: 60%;
+  height: 65%;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(182, 55, 55);
+  border: 2px solid grey;
+  border-radius: 20px;
+  background-image: url("/assets/electronics/signupImg.jpg");
+
+
+}
+
+
+mat-card {
+  max-width: 400px;
+  margin: 2em auto;
+  text-align: center;
+}
+
+mat-form-field {
+  display: block;
+}
+
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  background-color: white;
+  border-radius: 5px;
+}
+
+.head2{
+  color:white;
+  text-align:center
+}
+
+.signupBtn{
+  margin-left: 10rem;
+}
+
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-wrapper {
+    margin: 0 0 !important;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-infix {
+  padding: 0.5rem !important
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-subscript-wrapper {
+   padding: 0 0 !important;
+}
+
+.strength{
+  width:10px !important
+}
+
+.liit{
+  font-size: 10px;
+}
+
+.pass{
+  font-size: 12px;
+}
+
+/* div#mat-select-2-panel.ng-tns-c151-7.ng-trigger.ng-trigger-transformPanel.mat-select-panel.mat-primary{
+  transform-origin: 50% bottom 0px;
+    font-size: 10px;
+    opacity: 1;
+    min-width: calc(100% + 64px);
+    transform: scaleY(1);
+} */
+
+
+.mat-select-panel {
+  min-width: calc(100% + 50px);
+  max-width: 250px;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-top: 0;
+  padding-bottom: 0;
+  max-height: 256px;
+  min-width: 100%;
+  border-radius: 4px;
+  outline: 0;
 }

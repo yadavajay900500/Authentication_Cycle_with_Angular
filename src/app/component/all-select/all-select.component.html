@@ -1,0 +1,5 @@
+<mat-checkbox color="primary"  [checked]="isChecked()" (click)="$event.stopPropagation()"
+    (change)="toggleSelection($event)">
+   {{text}}
+</mat-checkbox>
+

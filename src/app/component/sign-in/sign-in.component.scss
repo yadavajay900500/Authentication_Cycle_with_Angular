@@ -16,4 +16,57 @@
     background-image: url("/assets/signupImg.jpg");
 
 
+
 }
+
+mat-card {
+    max-width: 400px;
+    margin: 2em auto;
+    text-align: center;
+   
+    background: #c31432;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #240b36, #c31432);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #240b36, #c31432);
+  }
+  
+  mat-form-field {
+    display: block;
+  }
+
+  .imglog{
+    width:30rem;
+    height:25rem;
+    align-items:center;
+    justify-content: center;
+    
+  }
+
+  .mainDiv{
+    display:flex;
+    height:100px;
+    width:100%;
+    align-items: center;
+    justify-content: center;
+
+  }
+  /* .container{
+    width:70%;
+    height:70%
+  } */
+  .div2{
+     margin-top: 200px; 
+  }
+  .login a{
+    color: #faeb15ea;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    background-color: white;
+    border-radius: 5px;
+  }
+
+  .head2{
+    color:white
+  }

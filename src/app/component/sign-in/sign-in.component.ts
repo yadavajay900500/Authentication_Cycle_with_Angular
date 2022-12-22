@@ -7,6 +7,7 @@ import { SignInSignUpService } from 'src/app/_services/sign-in-sign-up.service';
 import Validation from '../../utility/validation';
 import { JwtHelperService } from "@auth0/angular-jwt";
 
+
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
@@ -17,15 +18,15 @@ export class SignInComponent implements OnInit {
 
   helper = new JwtHelperService();
 
-  form: FormGroup = new FormGroup({
-    fullname: new FormControl(''),
-    username: new FormControl(''),
+  login: FormGroup = new FormGroup({
+    
     email: new FormControl(''),
     password: new FormControl(''),
-    confirmPassword: new FormControl(''),
-    acceptTerms: new FormControl(false),
+  
   });
   submitted = false;
+  loginValid = true;
+  showPassword =false;
 
   rootservice: any
   BASEURL: string;
@@ -40,7 +41,7 @@ export class SignInComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.form = this.formBuilder.group(
+    this.login = this.formBuilder.group(
       {
         email: ['yadavajay900500@gmail.com', [Validators.required, Validators.email]],
         password: [
@@ -52,19 +53,20 @@ export class SignInComponent implements OnInit {
           ]
         ],
 
-        acceptTerms: [false, Validators.requiredTrue]
+       
       },
 
     );
   }
 
   get f(): { [key: string]: AbstractControl } {
-    return this.form.controls;
+    return this.login.controls;
   }
 
-  onSubmit(body: any): void {
+  OnSubmit(body: any): void {
     this.submitted = true;
-    if (this.form.invalid) {
+    if (this.login.invalid) {
+      console.log("no result")
       return;
     }
     this.signInService.userSignIn(body)
@@ -92,8 +94,11 @@ export class SignInComponent implements OnInit {
 
   onReset(): void {
     this.submitted = false;
-    this.form.reset();
+    this.login.reset();
   }
-
+  
+  togglePasswordVisibility(){
+    this.showPassword = !this.showPassword;
+  }
 
 }

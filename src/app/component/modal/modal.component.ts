@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
+import { AppService } from 'src/app/app.service';
 
 @Component({
   selector: 'app-modal',
@@ -9,9 +10,10 @@ import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
 export class ModalComponent implements OnInit {
  
   value : any = ""
-  constructor(public modalRef: MdbModalRef<ModalComponent>) {}
+  constructor(public modalRef: MdbModalRef<ModalComponent>,private service:AppService) {}
 
   ngOnInit(): void {
+    this.service.getData().subscribe({next:(r:any)=>{this.value = r ;console.log(r)}})
   }
 
  close(){

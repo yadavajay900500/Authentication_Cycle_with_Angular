@@ -4,6 +4,17 @@ import { SignInSignUpService } from 'src/app/_services/sign-in-sign-up.service';
 import Validation from "../../utility/validation"
 import {MatSnackBar} from '@angular/material/snack-bar';
 
+interface Pokemon {
+  value: string;
+  viewValue: string;
+}
+
+interface PokemonGroup {
+  disabled?: boolean;
+  name: string;
+  pokemon: Pokemon[];
+}
+
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
@@ -17,16 +28,38 @@ export class SignUpComponent implements OnInit {
     email: new FormControl(''),
     password: new FormControl(''),
     confirmPassword: new FormControl(''),
-    acceptTerms: new FormControl(false),
+    market:new FormControl(''),
+    role:new FormControl('')
   });
   submitted = false;
+  showPassword= false;
+  passwordIsValid=false;
 
   constructor(private formBuilder: FormBuilder,
     private signUpService:SignInSignUpService,
     private _snackBar: MatSnackBar
     ) { }
 
+    roleGropus: PokemonGroup[] = [
+      {
+        name: 'Advert',
+        pokemon: [
+          { value: 'A', viewValue: 'A' },
+          { value: 'B', viewValue: 'B' },
+          { value: 'C', viewValue: 'C' },
+        ],
+      },
+      {
+        name: 'Publisher',
+        pokemon: [
+          { value: 'D', viewValue: 'D' },
+          { value: 'E', viewValue: 'E' },
+          { value: 'F', viewValue: 'F' },
+        ],
+      },
+    ];
 
+    marketList = ["india","US","UK","EU","EU-UK","Global"];
 
  
   ngOnInit(): void {
@@ -51,7 +84,8 @@ export class SignUpComponent implements OnInit {
           ]
         ],
         confirmPassword: ['', Validators.required],
-        acceptTerms: [false, Validators.requiredTrue]
+        market: ['', [Validators.required]],
+        role: ['', [Validators.required]],
       },
       {
         validators: [Validation.match('password', 'confirmPassword')]
@@ -92,6 +126,18 @@ export class SignUpComponent implements OnInit {
   onReset(): void {
     this.submitted = false;
     this.form.reset();
+  }
+
+  
+  togglePasswordVisibility() {
+    console.log("offfffffffffffffff")
+    this.showPassword = !this.showPassword;
+  }
+
+  
+
+  passwordValid(event: any) {
+    this.passwordIsValid = event;
   }
   
 
