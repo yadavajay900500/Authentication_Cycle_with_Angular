@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable,throwError } from 'rxjs';
 import { AppService } from '../app.service';
 // import { JwtHelperService } from '@auth0/angular-jwt';
- import { AuthGuard } from './auth.guard';
+ import { AuthGuard } from '../_authGuard/auth.guard';
  import { JwtHelperService } from "@auth0/angular-jwt";
 import { catchError, switchMap } from 'rxjs/operators';
 

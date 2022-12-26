@@ -40,13 +40,14 @@ export class AdminHomeComponent implements OnInit {
     // **************
     console.log("Admin Data",)
   }
-
+ adminDetails:any
   adminData(body: any) {
     // const email={email:body}
 
     console.log("!!!!!!!!!!!!!!!!!!!!!!!",{email:body})
-     this.http.post(`${this.BASEURL}adminData`, {email:body}).subscribe({
+     this.http.post(`${this.BASEURL}adminData`, body).subscribe({
       next: (r: any) => {
+        this.adminDetails = r
         console.log("AAAAAAAAAAAAAAAAAAAAAAA",r)
       },
       error: (err) => {

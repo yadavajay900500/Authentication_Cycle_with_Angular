@@ -5,3 +5,16 @@ p {
   .select-all{
     margin: 5px 17px;
   }
+
+mat-form-field{
+  width:100px;
+  // padding:0
+}
+
+span.mat-checkbox-label{
+  display:block;
+  color:rgba(0,0,0,0.60);
+  font-size:inherit;
+  font-weight: 500;
+  
+}

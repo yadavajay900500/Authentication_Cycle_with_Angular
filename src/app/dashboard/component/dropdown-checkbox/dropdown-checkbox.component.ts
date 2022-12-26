@@ -1,4 +1,4 @@
-import { Component,VERSION, OnInit, ViewChild } from '@angular/core';
+import { Component,VERSION, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatSelect } from '@angular/material/select';
 import { MatOption } from '@angular/material/core';
@@ -7,7 +7,8 @@ import { MatCheckboxChange } from '@angular/material/checkbox';
 @Component({
   selector: 'app-dropdown-checkbox',
   templateUrl: './dropdown-checkbox.component.html',
-  styleUrls: ['./dropdown-checkbox.component.scss']
+  styleUrls: ['./dropdown-checkbox.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class DropdownCheckboxComponent  {
   @ViewChild('select')

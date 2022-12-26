@@ -1,4 +1,4 @@
-<div class="todoDispaly">
+
     <div clas="todo">
     <!-- <app-user-work-list></app-user-work-list> -->
 
@@ -23,9 +23,9 @@
                                 justify-content-center align-items-center
                                 text-light h5">
                 <div class="col-7 text-light h5">{{x}}</div>
-                <button (click)="updateTask(index)" type="button" value="Update"
+                <button (click)="updateTask(index,x)" type="button" value="Update"
                     class="col-2 btn btn-warning ">Update</button>
-                <button (click)="deleteTask(index)" type="button" value="Delete"
+                <button (click)="deleteTask(x)" type="button" value="Delete"
                     class="col-2 btn btn-danger">Delete</button>
             </div>
         </div>
@@ -33,5 +33,5 @@
 <div class="listuser">
 
 </div>
-</div>
+
 

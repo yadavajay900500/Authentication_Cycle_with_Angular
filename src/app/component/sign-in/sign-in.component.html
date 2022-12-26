@@ -23,7 +23,7 @@
                   </mat-error>
                   <mat-form-field appearance="outline">
                       <input matInput type="email" placeholder="Email" formControlName="email" name="email" required>
-                      <!-- <span style="color:red" *ngIf="email && email.invalid && email.touched">email is not valid</span> -->
+                      
                       <mat-error  *ngIf="submitted && f['email'].errors">
                           <div *ngIf="f['email'].errors['required']">Email is required</div>
                           <div *ngIf="f['email'].errors['pattern']">example: abc@example.com</div>
@@ -42,20 +42,10 @@
                               <div *ngIf="f['password'].errors['minlength']">
                                 Password must be at least 6 characters
                               </div>
-                              <!-- <div *ngIf="f['password'].errors['maxlength']">
-                                password must not exceed 12 characters
-                              </div> -->
-                              <!-- <div *ngIf="f['password'].errors['pattern']">
-                                 <ul>
-                                    <li>password must contain atleast one special character</li>
-                                    <li>password must contain atleast one uppercase alphabet</li>
-                                    <li>password must contain atleast one lowercase alphabet</li>
-                                    <li>password must contain a number</li>
-                                 </ul>
-                              </div>  -->
+                             
                           </mat-error>
                   </mat-form-field>
-                  <!-- <password-strength-meter *ngIf="login.value.password" [password]="login.value.password"></password-strength-meter> -->
+                  
                   <button mat-raised-button color="warn">Login</button>
               </form>
           </mat-card-content>

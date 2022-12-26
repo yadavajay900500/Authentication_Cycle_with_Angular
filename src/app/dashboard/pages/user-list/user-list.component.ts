@@ -24,6 +24,19 @@ export interface PeriodicElement {
 }
 
 
+interface Pokemon {
+  value: string;
+  viewValue: string;
+}
+
+interface PokemonGroup {
+  disabled?: boolean;
+  name: string;
+  pokemon: Pokemon[];
+}
+
+
+
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
@@ -86,6 +99,24 @@ export class UserListComponent implements OnInit {
     //   })
   }
 
+  roleGropus: PokemonGroup[] = [
+    {
+      name: 'Advert',
+      pokemon: [
+        { value: 'A', viewValue: 'A' },
+        { value: 'B', viewValue: 'B' },
+        { value: 'C', viewValue: 'C' },
+      ],
+    },
+    {
+      name: 'Publisher',
+      pokemon: [
+        { value: 'D', viewValue: 'D' },
+        { value: 'E', viewValue: 'E' },
+        { value: 'F', viewValue: 'F' },
+      ],
+    },
+  ];
 
 
   displayedColumns: string[] = ['s_no', 'name', 'email','MARKET',  'role', 'status'];

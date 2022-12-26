@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from '../_authGuard/auth.guard';
+import { DragDropComponent } from './component/drag-drop/drag-drop.component';
 import { AdminDiplayComponent } from './pages/admin-diplay/admin-diplay.component';
 import { AdminHomeComponent } from './pages/admin-home/admin-home.component';
 import { NewUserListComponent } from './pages/new-user-list/new-user-list.component';
@@ -8,18 +10,20 @@ import { UserListComponent } from './pages/user-list/user-list.component';
 
 const routes: Routes = [
   {
-    path: "", component: AdminDiplayComponent
+    path: "", component: AdminDiplayComponent,canActivate: [AuthGuard]
   },
   {
-    path:"activeUser", component:UserListComponent
+    path:"activeUser", component:UserListComponent,canActivate: [AuthGuard]
   },
   {
-    path:"newRegister",component:NewUserListComponent
+    path:"newRegister",component:NewUserListComponent,canActivate: [AuthGuard]
   },
   {
-    path:"todoList",component:ToDoListComponent
+    path:"todoList",component:ToDoListComponent,canActivate: [AuthGuard]
+  },
+  {
+     path:"uploadFile",component:DragDropComponent,canActivate:[AuthGuard]
   }
-  
 ];
 
 @NgModule({

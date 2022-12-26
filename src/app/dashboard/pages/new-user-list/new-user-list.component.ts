@@ -52,7 +52,7 @@ export class NewUserListComponent implements OnInit {
     console.log(data)
     this.adminService.accountApproved(data).subscribe({
       next: (r: any) => {
-        console.log(r)
+        console.log(r);this.userData()
       },
       error: (err) => {
         console.log(err)
@@ -72,7 +72,8 @@ export class NewUserListComponent implements OnInit {
     console.log(data)
     this.adminService.accountApproved(data).subscribe({
       next: (r: any) => {
-        console.log(r)
+        console.log(r);
+        this.userData()
 
       },
       error: (err) => {
@@ -93,7 +94,8 @@ export class NewUserListComponent implements OnInit {
     console.log(data)
     this.adminService.accountApproved(data).subscribe({
       next: (r: any) => {
-        console.log(r)
+        console.log(r);
+        this.userData()
 
       },
       error: (err) => {

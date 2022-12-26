@@ -11,13 +11,15 @@ import { MaterialModule } from './materialModule/material/material.module';
 import { HeaderComponent } from './component/header/header.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClient,HttpClientModule ,HTTP_INTERCEPTORS}  from '@angular/common/http';
-import { SignUpUserComponent } from './component/sign-up-user/sign-up-user.component';
 import { AuthGuard } from './_authGuard/auth.guard';
-import { InterceptorService } from './_authGuard/interceptor.service';
+import { InterceptorService } from './_interceptor/interceptor.service';
 import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
 import { FormsModule } from "@angular/forms";
 import { AdminProfileComponent } from './pages/admin-profile/admin-profile.component'
 import { ModalComponent } from './component/modal/modal.component';
+import { PasswordStrengthCustomComponent } from './component/password-strength-custom/password-strength-custom.component';
+import { AllSelectComponent } from './component/all-select/all-select.component';
+import { httpInterceptorProviders } from './_interceptor';
 
 
 @NgModule({
@@ -28,9 +30,11 @@ import { ModalComponent } from './component/modal/modal.component';
     SignUpComponent,
     SignInComponent,
     HeaderComponent,
-    SignUpUserComponent,
+    
     ModalComponent,
     AdminProfileComponent,
+    PasswordStrengthCustomComponent,
+    AllSelectComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,12 +52,7 @@ import { ModalComponent } from './component/modal/modal.component';
   
   providers: [
      // Tell angular to use this interceptor
-    //  { provide: HTTP_INTERCEPTORS, useClass: AuthGuard, multi: true }
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: InterceptorService,
-      multi: true
-  }
+     httpInterceptorProviders
   ],
   bootstrap: [AppComponent]
 })

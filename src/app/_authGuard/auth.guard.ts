@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AppService } from '../app.service';
-import { InterceptorService } from './interceptor.service';
+import { InterceptorService } from '../_interceptor/interceptor.service';
 import { JwtHelperService } from "@auth0/angular-jwt";
 
 
