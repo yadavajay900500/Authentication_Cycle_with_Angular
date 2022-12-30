@@ -1,57 +1,41 @@
-<!-- <div class="mainDiv"> -->
+<div class="div2">
+    <mat-card>
+        <mat-card-content>
+            <form [formGroup]="login" (ngSubmit)="OnSubmit(login.value)">
+                <h2 class="head2">Log In</h2>
+                <mat-error *ngIf="!loginValid">
+                    The username and password were not recognized
+                </mat-error>
+                <mat-form-field appearance="outline">
+                    <input matInput type="email" placeholder="Email" formControlName="email" name="email" required>
 
-<!-- <div class="mainDiv">
+                    <mat-error *ngIf="submitted && f['email'].errors">
+                        <div *ngIf="f['email'].errors['required']">Email is required</div>
+                        <div *ngIf="f['email'].errors['pattern']">example: abc@example.com</div>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-icon matSuffix (click)="togglePasswordVisibility()">
+                        {{showPassword?'visibility_off':'visibility'}}
+                    </mat-icon>
+                    <input matInput [type]="showPassword ? 'text' : 'password'" placeholder="Password"
+                        formControlName="password" name="password" required>
 
-    <div>
 
-        <img src="https://abit.bt/wp-content/uploads/2019/02/resp_design.gif"
-            alt="" class="imglog">
+                    <mat-error *ngIf="submitted && f['password'].errors">
+                        <div *ngIf="f['password'].errors['required']">Password is required</div>
+                        <div *ngIf="f['password'].errors['minlength']">
+                            Password must be at least 6 characters
+                        </div>
 
-    </div> -->
+                    </mat-error>
+                </mat-form-field>
 
-
-    
-
-    <div class="div2">
-
-      <mat-card>
-          <mat-card-content>
-              <form [formGroup]="login" (ngSubmit)="OnSubmit(login.value)">
-                  <h2 class="head2">Log In</h2>
-                  <mat-error *ngIf="!loginValid">
-                      The username and password were not recognized
-                  </mat-error>
-                  <mat-form-field appearance="outline">
-                      <input matInput type="email" placeholder="Email" formControlName="email" name="email" required>
-                      
-                      <mat-error  *ngIf="submitted && f['email'].errors">
-                          <div *ngIf="f['email'].errors['required']">Email is required</div>
-                          <div *ngIf="f['email'].errors['pattern']">example: abc@example.com</div>
-                      </mat-error>
-                  </mat-form-field>
-                  <mat-form-field appearance="outline">
-                      <mat-icon matSuffix (click)="togglePasswordVisibility()">
-                          {{showPassword?'visibility_off':'visibility'}}
-                      </mat-icon>
-                      <input matInput [type]="showPassword ? 'text' : 'password'" placeholder="Password" formControlName="password" name="password"
-                          required>
-
-                          
-                          <mat-error *ngIf="submitted && f['password'].errors">
-                              <div *ngIf="f['password'].errors['required']">Password is required</div>
-                              <div *ngIf="f['password'].errors['minlength']">
-                                Password must be at least 6 characters
-                              </div>
-                             
-                          </mat-error>
-                  </mat-form-field>
-                  
-                  <button mat-raised-button color="warn">Login</button>
-              </form>
-          </mat-card-content>
-      </mat-card>
-      <div class="text-center login">
-          Don`t have an account ? <a routerLink="/signUp">Signup</a> here.
-      </div>
-  </div>
-<!-- </div> -->
+                <button mat-raised-button color="warn">Login</button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+    <div class="text-center login">
+        Don`t have an account ? <a routerLink="/signUp">Signup</a> here.
+    </div>
+</div>

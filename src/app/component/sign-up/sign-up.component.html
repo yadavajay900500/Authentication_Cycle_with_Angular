@@ -94,9 +94,9 @@
 
           <mat-select formControlName="role" multiple placeholder="Role">
 
-            <mat-optgroup *ngFor="let group of roleGropus" [label]="group.name">
-              <mat-option *ngFor="let pokemon of group.pokemon" [value]="pokemon.value">
-                {{pokemon.viewValue}}
+            <mat-optgroup *ngFor="let group of roleGroups" [label]="group.name">
+              <mat-option *ngFor="let role of group.roles" [value]="role.value">
+                {{role.viewValue}}
               </mat-option>
             </mat-optgroup>
           </mat-select>

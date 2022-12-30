@@ -15,15 +15,10 @@ export class TokenInterceptorService implements HttpInterceptor{
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     let authservice = this.inject.get(SignInSignUpService);
     let authreq = request;
-    // const token:any = sessionStorage.getItem('TOKEN');
-    // authreq = this.AddTokenheader(request, token);
+   
     return next.handle(authreq).pipe(
       catchError(errordata => {
         if (errordata.status === 401) {
-          console.log("QQQQQQqq",errordata)
-          // need to implement logout
-          // this.rootService.logout();
-          // refresh token logic
          return this.handleRefrehToken(request, next);
         }
         return throwError(errordata);
@@ -44,17 +39,11 @@ export class TokenInterceptorService implements HttpInterceptor{
         return next.handle(request)
       }),
       catchError(errodata=>{
-        // this.rootService.logout();
         return throwError(errodata)
       })
     );
   }
 
-  // AddTokenheader(request: HttpRequest<any>, next: HttpHandler) {
-  //   // return request.clone({ headers: request.headers.set('token', token) });
-  //   return next.handle(request);
-
-  // }
-
+  
   
 }
