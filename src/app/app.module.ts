@@ -24,6 +24,7 @@ import { PasswordStrengthCustomComponent } from './component/password-strength-c
 import { AllSelectComponent } from './component/all-select/all-select.component';
 import { httpInterceptorProviders } from './_interceptor';
 import { SharedModuleModule } from './_sharedModule/shared-module/shared-module.module';
+import { LoaderComponent } from './component/loader/loader.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { SharedModuleModule } from './_sharedModule/shared-module/shared-module.
     AdminProfileComponent,
     PasswordStrengthCustomComponent,
     AllSelectComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,

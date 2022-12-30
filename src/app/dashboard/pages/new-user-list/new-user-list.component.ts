@@ -15,12 +15,7 @@ export class NewUserListComponent implements OnInit {
   newApplication: any;
   id: any;
   body: any;
-  constructor(
-    private adminService: AdminService,
-
-  ) {
-
-  }
+  constructor(private adminService: AdminService) {}
   ngOnInit(): void {
     this.userData()
   }
@@ -29,7 +24,6 @@ export class NewUserListComponent implements OnInit {
     this.adminService.allNewUser()
       .subscribe({
         next: (res: any) => {
-          console.log("Successfull Add Data !", res.data)
           this.newApplication = res.data
           this.id = this.newApplication._id
         },
@@ -52,7 +46,7 @@ export class NewUserListComponent implements OnInit {
     console.log(data)
     this.adminService.accountApproved(data).subscribe({
       next: (r: any) => {
-        console.log(r);this.userData()
+        this.userData()
       },
       error: (err) => {
         console.log(err)
@@ -72,7 +66,6 @@ export class NewUserListComponent implements OnInit {
     console.log(data)
     this.adminService.accountApproved(data).subscribe({
       next: (r: any) => {
-        console.log(r);
         this.userData()
 
       },
@@ -91,10 +84,8 @@ export class NewUserListComponent implements OnInit {
         statusBy: "Ajay Yadav",
       }
     }
-    console.log(data)
     this.adminService.accountApproved(data).subscribe({
       next: (r: any) => {
-        console.log(r);
         this.userData()
 
       },
