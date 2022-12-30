@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { SignInSignUpService } from 'src/app/_services/sign-in-sign-up.service';
 import { AdminService } from '../../admin.service';
 
 @Component({
@@ -43,7 +42,6 @@ export class NewUserListComponent implements OnInit {
         statusBy: "Ajay Yadav",
       }
     }
-    console.log(data)
     this.adminService.accountApproved(data).subscribe({
       next: (r: any) => {
         this.userData()
@@ -63,7 +61,6 @@ export class NewUserListComponent implements OnInit {
         statusBy: "Ajay Yadav",
       }
     }
-    console.log(data)
     this.adminService.accountApproved(data).subscribe({
       next: (r: any) => {
         this.userData()

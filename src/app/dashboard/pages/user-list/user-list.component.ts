@@ -51,7 +51,7 @@ export class UserListComponent implements OnInit {
   constructor(private adminService: AdminService) { }
   ngOnInit(): void {
 
-    this.get_all_data()
+    this.getAllData()
 
   }
 
@@ -80,13 +80,12 @@ export class UserListComponent implements OnInit {
 
 
   buttonToggle(e: any, id: any, status: any, index: any) {
-    console.log("event clicked", index)
 
     this.updateStatus(id, index)
 
   }
 
-  get_all_data() {
+  getAllData() {
     this.adminService.getUserList().
       subscribe({
         next: (r:any) => { this.dataSource = r as string },
@@ -101,7 +100,7 @@ export class UserListComponent implements OnInit {
       id: id
     }
     this.adminService.updateToUserList(data).subscribe({
-      next: (r: any) => { this.update = r; this.get_all_data() },
+      next: (r: any) => { this.update = r; this.getAllData() },
       error: (err: any) => { this.res = err; },
     })
 

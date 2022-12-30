@@ -4,7 +4,6 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators, Form 
 import { Router } from '@angular/router';
 import { AppService } from 'src/app/app.service';
 import { SignInSignUpService } from 'src/app/_services/sign-in-sign-up.service';
-import Validation from '../../utility/validation';
 import { JwtHelperService } from "@auth0/angular-jwt";
 
 
@@ -66,16 +65,13 @@ export class SignInComponent implements OnInit {
   OnSubmit(body: any): void {
     this.submitted = true;
     if (this.login.invalid) {
-      console.log("no result")
       return;
     }
     this.signInService.userSignIn(body)
       .subscribe({
         next: (res: any) => {
-          console.log("Successfull Login !", res.userData)
           this.rootservice.setToken(res.userData.TOKEN)
           this.rootservice.setRefrshToken(res.userData.refreshToken)
-          // this.rootService.setData(res.userData)
           const data = this.helper.decodeToken(res.userData.TOKEN);
           const  {roles} = data.data
 
@@ -86,7 +82,6 @@ export class SignInComponent implements OnInit {
           }
         },
         error: (e) => {
-          console.log("Something Wrong !", e)
           this.router.navigateByUrl('/signIn');
         }
       })

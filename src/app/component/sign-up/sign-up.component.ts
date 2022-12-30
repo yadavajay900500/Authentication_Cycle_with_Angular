@@ -91,11 +91,11 @@ export class SignUpComponent implements OnInit {
       return;
     }
 
-    // console.log(JSON.stringify(this.form.value, null, 2));
     this.signUpService.userSignUp(body)
     .subscribe({
       next: (result: any) => { 
-        const data = result.msg ;this.onReset()
+        const data = result.msg ;
+        this.onReset()
       },
       error: (e) => {
         console.log("SignUp Failes!", e)

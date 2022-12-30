@@ -47,7 +47,7 @@ export class FileDragNDropDirective {
       let valid_files: Array<File> = FileDragNDropDirective.files;
        this.filesChangeEmiter.emit(valid_files);
     
-     },5000)
+     },1000)
   }
 
   static files: Array<File> = [];

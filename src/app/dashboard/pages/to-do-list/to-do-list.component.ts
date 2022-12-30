@@ -77,7 +77,7 @@ export class ToDoListComponent implements OnInit {
 
           },
           error: (err: any) => {
-            this.errs = err; console.log(err)
+            this.errs = err;
           }
         })
       }
