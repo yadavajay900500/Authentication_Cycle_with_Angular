@@ -17,41 +17,22 @@ export class AdminService {
     this.BASEURL = AppService.BASEURL
   }
   
-  toDoListAdd(body: any) {
-    console.log("tootoo",body)
+  toDoListAdd(body:any) {
     return this.http.post(`${this.BASEURL}add`, body)
-      .subscribe({
-        next: (res: any) => {
-          console.log("Successfull Add Data !", res.userData)
-        },
-        error: (e) => {
-          console.log("Something Wrong !", e)
-        }
-      })
   }
 
   toDoListRemove(body: any) {
     return this.http.post(`${this.BASEURL}remove`, body)
-      .subscribe({
-        next: (res: any) => {
-          console.log("Successfull Remove !", res.userData)
-        },
-        error: (e) => {
-          console.log("Something Wrong !", e)
-        }
-      })
   }
+
   toDoListUpadate(body: any) {
-    return this.http.post(`${this.BASEURL}update`, body)
-      .subscribe({
-        next: (res: any) => {
-          console.log("Successfull Update !", res.userData)
-        },
-        error: (e) => {
-          console.log("Something Wrong !", e)
-        }
-      })
+    return this.http.patch(`${this.BASEURL}update`, body)
   }
+
+  getAllTasks(body:any){
+   return this.http.get(`${this.BASEURL}getTask?email=${body}`)
+  }
+ 
 
   allNewUser() {
     return this.http.get(`${this.BASEURL}newUserApplication`)
@@ -61,4 +42,12 @@ export class AdminService {
   accountApproved(body:any){
     return this.http.patch(`${this.BASEURL}verifyAccount`,body)
   }
+
+  getUserList(){
+    return this.http.get(`${this.BASEURL}allApplication`)
+   }
+ 
+   updateToUserList(data:any){
+    return this.http.patch(`${this.BASEURL}updateStatus`, data)
+   }
 }

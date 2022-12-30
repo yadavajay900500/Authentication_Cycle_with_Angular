@@ -8,7 +8,6 @@ import { AdminSidebarComponent } from './component/admin-sidebar/admin-sidebar.c
 import { AdminDiplayComponent } from './pages/admin-diplay/admin-diplay.component';
 import { NewUserListComponent } from './pages/new-user-list/new-user-list.component';
 import { MaterialModule } from '../materialModule/material/material.module';
-import { UserWorkListComponent } from './pages/user-work-list/user-work-list.component';
 import { ToDoListComponent } from './pages/to-do-list/to-do-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DropdownCheckboxComponent } from './component/dropdown-checkbox/dropdown-checkbox.component';
@@ -25,7 +24,6 @@ import { DragDropComponent } from './component/drag-drop/drag-drop.component';
         AdminDiplayComponent,
         NewUserListComponent,
         ToDoListComponent,
-        UserWorkListComponent,
         DropdownCheckboxComponent,
         DragDropComponent
         

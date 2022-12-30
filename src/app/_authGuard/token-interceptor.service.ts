@@ -20,9 +20,9 @@ export class TokenInterceptorService implements HttpInterceptor{
     return next.handle(authreq).pipe(
       catchError(errordata => {
         if (errordata.status === 401) {
-          // need to implement logout
+      
           this.rootService.logout();
-          // refresh token logic
+        
          return this.handleRefrehToken(request, next);
         }
         return throwError(errordata);
@@ -34,7 +34,7 @@ export class TokenInterceptorService implements HttpInterceptor{
     let authservice = this.inject.get(SignInSignUpService);
     return authservice.GenerateRefreshToken().pipe(
       switchMap((data: any) => {
-        console.log("+++++++++++++",data)
+    
         this.rootService.setToken(data);
         return next.handle(this.AddTokenheader(request,data.jwtToken))
       }),

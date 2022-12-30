@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {BehaviorSubject } from 'rxjs'
 
-const USER_KEY = 'auth-user';
+
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,7 @@ export class AppService {
 
   constructor() { }
   private behaviorSubjectData=new BehaviorSubject({viewLoad:false})
-  private behaviorSubjectObseverData=this.behaviorSubjectData.asObservable();
+  private behaviorSubjectObseverData= this.behaviorSubjectData.asObservable();
 
 
 
@@ -41,14 +41,7 @@ export class AppService {
   static getToken = () => {
     return sessionStorage.getItem("TOKEN");
   }
-  public isLoggedIn(): boolean {
-    const user = window.sessionStorage.getItem(USER_KEY);
-    if (user) {
-      return true;
-    }
-
-    return false;
-  }
+ 
 
   static logout(){
       window.sessionStorage.clear();

@@ -6,6 +6,7 @@ import { AppService } from 'src/app/app.service';
 import { SignInSignUpService } from 'src/app/_services/sign-in-sign-up.service';
 import Validation from '../../utility/validation';
 import { JwtHelperService } from "@auth0/angular-jwt";
+import {  loginCredentials } from 'src/app/data.type';
 
 
 @Component({
@@ -63,7 +64,7 @@ export class SignInComponent implements OnInit {
     return this.login.controls;
   }
 
-  OnSubmit(body: any): void {
+  OnSubmit(body: loginCredentials){
     this.submitted = true;
     if (this.login.invalid) {
       console.log("no result")

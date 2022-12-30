@@ -18,22 +18,22 @@ export class SignInSignUpService {
   }
 
   userSignUp(body: any) {
-    console.log("mmmmmmmmmmmmmmmm", body)
+    
     return this.http.post(`${this.BASEURL}signUp`, body)
   }
   
   userSignIn(body: any) {
-    console.log(">>>>>>>>>>",body)
+  
     return this.http.post(`${this.BASEURL}signIn`, body)
      
   }
-// 888888888888888888888888888888888888888888888888
+
 GenerateRefreshToken() {
   let input = {
     "jwtToken": this.rootservice.getToken('TOKEN'),
     "refreshToken": this.rootservice.getToken('REFRESH_TOKEN')
   }
-  console.log("tokennnnnnnnnnn",input)
+  
   return this.http.post(`${this.BASEURL}signIn` + 'refresh', input);
 }
 }

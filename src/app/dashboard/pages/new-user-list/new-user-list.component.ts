@@ -29,9 +29,10 @@ export class NewUserListComponent implements OnInit {
     this.adminService.allNewUser()
       .subscribe({
         next: (res: any) => {
-          console.log("Successfull Add Data !", res.data)
-          this.newApplication = res.data
-          this.id = this.newApplication._id
+         
+          this.newApplication = res
+          console.log(res)
+          this.id = this.newApplication?._id
         },
         error: (e) => {
           console.log("Something Wrong !", e)
@@ -49,7 +50,7 @@ export class NewUserListComponent implements OnInit {
         statusBy: "Ajay Yadav",
       }
     }
-    console.log(data)
+   
     this.adminService.accountApproved(data).subscribe({
       next: (r: any) => {
         console.log(r);this.userData()

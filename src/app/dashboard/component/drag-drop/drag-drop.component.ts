@@ -24,14 +24,14 @@ export class DragDropComponent implements OnInit {
     this.fileFolderData = files
     console.log("QWWWWWWWWWWWWWWWWWWWWWWWWW", this.fileFolderData)
 
-    for (let i = 0; i < files.length; i++) {
-      const file = files[i];
-      // const path = file.webkitRelativePath.split('/');
-      const path = file.webkitRelativePath;
-      // console.log("QQQQQQQQQQ", path)
-      this.fileName.push(path)
+    // for (let i = 0; i < files.length; i++) {
+    //   const file = files[i];
+    //   // const path = file.webkitRelativePath.split('/');
+    //   const path = file.webkitRelativePath;
+    //   // console.log("QQQQQQQQQQ", path)
+    //   this.fileName.push(path)
 
-    }
+    // }
 
 
   }

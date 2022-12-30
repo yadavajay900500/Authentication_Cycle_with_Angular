@@ -21,12 +21,12 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot): boolean {
     const token: any = sessionStorage.getItem('TOKEN');
     const isExpired = this.helper.isTokenExpired(token);
-    console.log("tttttt0000000000000000ttttt",isExpired)
+   
 
     if (token) {
-    console.log("ttttttttttttttttttttttt", isExpired)
+    
       if (!isExpired) {
-        console.log("*****************", isExpired)
+      
         return true
       } else {
         this.router.navigateByUrl('/signIn');
@@ -37,12 +37,6 @@ export class AuthGuard implements CanActivate {
       return false;
     }
   }
-  // canActivate(): boolean {
-  //   if (!this.auth.isAuthenticated()) {
-  //     this.router.navigate(['login']);
-  //     return false;
-  //   }
-  //   return true;
-  // }
+
 
 }

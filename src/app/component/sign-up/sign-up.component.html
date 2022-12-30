@@ -14,11 +14,11 @@
         <h2 class="head2">Register</h2>
         
         <mat-form-field appearance="outline">
-          <input matInput type="text" placeholder="Fullname" formControlName="fullname" name="fullname" required>
+          <input matInput type="text" placeholder="name" formControlName="name" name="name" required>
 
-          <mat-error *ngIf="submitted && f['fullname'].errors">
-            <div *ngIf="f['fullname'].errors['required']">Fullname is required</div>
-            <div *ngIf="f['fullname'].errors['pattern']">fullname must be in charecters</div>
+          <mat-error *ngIf="submitted && f['name'].errors">
+            <div *ngIf="f['name'].errors['required']">name is required</div>
+            <div *ngIf="f['name'].errors['pattern']">name must be in charecters</div>
           </mat-error>
         </mat-form-field>
         <mat-form-field appearance="outline">
@@ -94,9 +94,9 @@
 
           <mat-select formControlName="role" multiple placeholder="Role">
 
-            <mat-optgroup *ngFor="let group of roleGropus" [label]="group.name">
-              <mat-option *ngFor="let pokemon of group.pokemon" [value]="pokemon.value">
-                {{pokemon.viewValue}}
+            <mat-optgroup *ngFor="let group of roleGroups" [label]="group.name">
+              <mat-option *ngFor="let role of group.roles" [value]="role.value">
+                {{role.viewValue}}
               </mat-option>
             </mat-optgroup>
           </mat-select>

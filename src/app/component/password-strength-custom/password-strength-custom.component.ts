@@ -123,7 +123,7 @@ msgColor: string = "";
   }
 
   private setBarColors(count: any, col: any) {
-    let obj = {}
+  
     for (let n = 0; n < count; n++) {
       if(n == 0){
         this.bar0 = col
@@ -137,15 +137,7 @@ msgColor: string = "";
       if(n == 3){
         this.bar3 = col
       }
-      // let v = "bar"+n
-      // console.log("fffffffffff",v);
-      // const str = v as string;
-      // // obj[str as keyof typeof obj]="hhhhhh"
-      
-      // //  this.bar1 = col
-      // // this.bar["bar.concat(1)] == col
-      // //  obj.(`bar${String(n)}`)= "erty";
-      // // this.`bar${n}` = col
+    
     }
   }
 

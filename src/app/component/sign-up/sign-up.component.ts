@@ -3,17 +3,11 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators ,Form}
 import { SignInSignUpService } from 'src/app/_services/sign-in-sign-up.service';
 import Validation from "../../utility/validation"
 import {MatSnackBar} from '@angular/material/snack-bar';
+import { signupCredentials ,RolesGroup } from 'src/app/data.type';
 
-interface Pokemon {
-  value: string;
-  viewValue: string;
-}
 
-interface PokemonGroup {
-  disabled?: boolean;
-  name: string;
-  pokemon: Pokemon[];
-}
+
+
 
 @Component({
   selector: 'app-sign-up',
@@ -23,7 +17,7 @@ interface PokemonGroup {
 export class SignUpComponent implements OnInit {
 
   form: FormGroup = new FormGroup({
-    fullname: new FormControl(''),
+    name: new FormControl(''),
     email: new FormControl(''),
     password: new FormControl(''),
     confirmPassword: new FormControl(''),
@@ -39,10 +33,10 @@ export class SignUpComponent implements OnInit {
     private _snackBar: MatSnackBar
     ) { }
 
-    roleGropus: PokemonGroup[] = [
+    roleGroups: RolesGroup[] = [
       {
         name: 'Advert',
-        pokemon: [
+        roles: [
           { value: 'A', viewValue: 'A' },
           { value: 'B', viewValue: 'B' },
           { value: 'C', viewValue: 'C' },
@@ -50,7 +44,7 @@ export class SignUpComponent implements OnInit {
       },
       {
         name: 'Publisher',
-        pokemon: [
+        roles: [
           { value: 'D', viewValue: 'D' },
           { value: 'E', viewValue: 'E' },
           { value: 'F', viewValue: 'F' },
@@ -64,15 +58,8 @@ export class SignUpComponent implements OnInit {
   ngOnInit(): void {
     this.form = this.formBuilder.group(
       {
-        fullname: ['', Validators.required],
-        // username: [
-        //   '',
-        //   [
-        //     Validators.required,
-        //     Validators.minLength(6),
-        //     Validators.maxLength(20)
-        //   ]
-        // ],
+        name: ['', Validators.required],
+        
         email: ['', [Validators.required, Validators.email]],
         password: [
           '',
@@ -96,23 +83,19 @@ export class SignUpComponent implements OnInit {
     return this.form.controls;
   }
 
-  onSubmit(body:any): void {
+  onSubmit(body:signupCredentials) {
     this.submitted = true;
-    console.log("+++++++++++",body)
+   
     
     if (this.form.invalid) {
       return;
     }
 
-    console.log(JSON.stringify(this.form.value, null, 2));
+    // console.log(JSON.stringify(this.form.value, null, 2));
     this.signUpService.userSignUp(body)
     .subscribe({
-      next: (result: any) => {
-        console.log("Successfull Signup")
-        console.log(result)
-        const data=result.msg
-          // this._snackBar.open(data);
-          this.onReset()
+      next: (result: any) => { 
+        const data = result.msg ;this.onReset()
       },
       error: (e) => {
         console.log("SignUp Failes!", e)
@@ -129,7 +112,6 @@ export class SignUpComponent implements OnInit {
 
   
   togglePasswordVisibility() {
-    console.log("offfffffffffffffff")
     this.showPassword = !this.showPassword;
   }
 

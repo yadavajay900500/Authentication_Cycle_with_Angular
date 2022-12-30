@@ -5,7 +5,7 @@ import { SignUpComponent } from './component/sign-up/sign-up.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { AuthGuard } from './_authGuard/auth.guard';
-import { AdminProfileComponent } from './pages/admin-profile/admin-profile.component';
+
 import { AdminHomeComponent } from './dashboard/pages/admin-home/admin-home.component';
 
 const routes: Routes = [
@@ -23,9 +23,8 @@ const routes: Routes = [
 
   },
  
-  {
-    path:"adminProfile", component:AdminProfileComponent
-  },
+
+
   {
     path:'admin', component:AdminHomeComponent,canActivate: [AuthGuard] ,
    children:[{

@@ -7,8 +7,8 @@
                           [ngModelOptions]="{standalone: true}"
                           (change)="toggleAllSelection()">Select All</mat-checkbox>
       </div>
-      <mat-option (click)="optionClick(food.value)" *ngFor="let food of foods" [value]="food.value">
-        {{food.viewValue}}
+      <mat-option (click)="optionClick(item.value)" *ngFor="let item of market" [value]="item.value">
+        {{item.viewValue}}
       </mat-option>
     </mat-select>
   </mat-form-field>
