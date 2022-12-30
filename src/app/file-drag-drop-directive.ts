@@ -5,9 +5,7 @@ import { Directive, HostListener, HostBinding, Output, EventEmitter, Input } fro
 })
 
 export class FileDragNDropDirective {
-  //@Input() private allowed_extensions : Array<string> = ['png', 'jpg', 'bmp'];
-  @Output() private filesChangeEmiter : EventEmitter<File[]> = new EventEmitter();
-  //@Output() private filesInvalidEmiter : EventEmitter<File[]> = new EventEmitter();
+  @Output() private filesChangeEmiter: EventEmitter<File[]> = new EventEmitter();
   @HostBinding('style.background') private background = '#eee';
   @HostBinding('style.border') private borderStyle = '2px dashed';
   @HostBinding('style.border-color') private borderColor = '#696D7D';
@@ -15,7 +13,7 @@ export class FileDragNDropDirective {
 
   constructor() { }
 
-  @HostListener('dragover', ['$event']) public onDragOver(evt:any){
+  @HostListener('dragover', ['$event']) public onDragOver(evt: any) {
     evt.preventDefault();
     evt.stopPropagation();
     this.background = 'lightgray';
@@ -23,46 +21,7 @@ export class FileDragNDropDirective {
     this.borderStyle = '3px solid';
   }
 
-  @HostListener('dragleave', ['$event']) public onDragLeave(evt:any){
-    const items = evt.dataTransfer.items;
-    console.log("DrapLeav!!!!!!!!!!!!!!!!!!!!!!________",evt.dataTransfer.items)
-    for (let i = 0; i < items.length; i++) {
-      const item = items[i];
-      if (item.kind === 'file') {
-          const entry = item.webkitGetAsEntry();
-          if (entry.isFile) {
-               const res= new Promise((resolve, reject) => {
-                  entry.file( 
-                      (file:any) => {
-                          resolve(file);
-                      },
-                      (err:any) => {
-                          reject(err);
-                      }
-                  );
-              });
-              console.log("SSSSSDrapLeav!!!!SSSSSSS",res)
-
-          } else if (entry.isDirectory) {
-              const directoryReader = entry.createReader();
-              const ss= new Promise((resolve, reject) => {
-                  directoryReader.readEntries(
-                      (entries:any) => {
-
-                          resolve(entries);
-                      },
-                      (err:any) => {
-                          reject(err);
-                      }
-                  );
-              });
-              console.log("isDirectrpLeav!!!!SSSSSSS",ss)
-
-          }
-      }
-  }
-// ***************************
-
+  @HostListener('dragleave', ['$event']) public onDragLeave(evt: any) {
     evt.preventDefault();
     evt.stopPropagation();
     this.background = '#eee';
@@ -70,51 +29,41 @@ export class FileDragNDropDirective {
     this.borderStyle = '2px dashed';
   }
 
-  @HostListener('drop', ['$event']) public onDrop(evt:any){
-
-    const items = evt.dataTransfer.items;
-    for (let i = 0; i < items.length; i++) {
-      const item = items[i];
-      if (item.kind === 'file') {
-          const entry = item.webkitGetAsEntry();
-          if (entry.isFile) {
-               const res= new Promise((resolve, reject) => {
-                  entry.file( 
-                      (file:any) => {
-                        console.log("SSSSSSSSSSSS",file)
-                          resolve(file);
-                      },
-                      (err:any) => {
-                          reject(err);
-                      }
-                  );
-              });
-          } else if (entry.isDirectory) {
-              const directoryReader = entry.createReader();
-              const ss= new Promise((resolve, reject) => {
-                  directoryReader.readEntries(
-                      (entries:any) => {
-                          resolve(entries);
-                      },
-                      (err:any) => {
-                          reject(err);
-                      }
-                  );
-              });
-          }
-      }
-  }
-// ***************************
+  @HostListener('drop', ['$event']) public async onDrop(evt: any) {
     evt.preventDefault();
     evt.stopPropagation();
     this.background = '#eee';
     this.borderColor = '#696D7D';
     this.borderStyle = '2px dashed';
-    // debugger;
-    let files = evt.dataTransfer.files;
-    console.log("Drap______________________",files)
 
-    let valid_files : Array<File> = files;
-    this.filesChangeEmiter.emit(valid_files);
+    let items = evt.dataTransfer.items;
+    for (let i = 0; i < items.length; i++) {
+      let item = items[i].webkitGetAsEntry();
+      if (item) {
+        await FileDragNDropDirective.traverseFileTree(item);
+      }
+    }
+     setTimeout(()=>{
+      let valid_files: Array<File> = FileDragNDropDirective.files;
+       this.filesChangeEmiter.emit(valid_files);
+    
+     },5000)
+  }
+
+  static files: Array<File> = [];
+  static async traverseFileTree(item: any, path?: any) {
+    path = path || ''
+    if (item.isFile) {
+      item.file(function (fileItem: any) {
+         FileDragNDropDirective.files.push(fileItem)
+      });
+    } else if (item.isDirectory) {
+      let dirReader = item.createReader();
+      dirReader.readEntries(function (entries: any) {
+        for (let i = 0; i < entries.length; i++) {
+          FileDragNDropDirective.traverseFileTree(entries[i], path + item.name + "/");
+        }
+      });
+    }
   }
 }

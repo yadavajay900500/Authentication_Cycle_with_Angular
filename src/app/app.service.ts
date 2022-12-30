@@ -27,13 +27,13 @@ export class AppService {
   static BASEURL="http://localhost:5050/"
 
 
-  
   static setToken = (token: string) => {
     sessionStorage.setItem(AppService.TOKEN_KEY, token)
   }
   static setRefrshToken = (token: string) => {
     sessionStorage.setItem(AppService.REFRESH_TOKEN_KEY, token)
   }
+  
   static removeToken = () => {
     sessionStorage.removeItem(AppService.TOKEN_KEY)
   }
@@ -41,14 +41,10 @@ export class AppService {
   static getToken = () => {
     return sessionStorage.getItem("TOKEN");
   }
-  public isLoggedIn(): boolean {
-    const user = window.sessionStorage.getItem(USER_KEY);
-    if (user) {
-      return true;
-    }
-
-    return false;
+  static getRefrshToken = () => {
+    return sessionStorage.getItem("REFRESH_TOKEN");
   }
+ 
 
   static logout(){
       window.sessionStorage.clear();

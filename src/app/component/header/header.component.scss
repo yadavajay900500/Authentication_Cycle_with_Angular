@@ -5,31 +5,48 @@
     justify-content: space-between;
     height: 60px;
     background-color: aquamarine;
-    padding:0 20px ;
+    padding: 0 20px;
     position: static;
 }
-.left{
+
+.left {
     font-size: 25px;
     font-weight: 800;
 }
-.right{
+
+.right {
     display: flex;
     justify-items: center;
     align-items: center;
     font-size: 16px;
     font-weight: 500;
 }
+
 .rightlist {
     display: flex;
     align-items: center;
     justify-content: center;
     justify-items: center;
     list-style: none;
-    gap:10px ;
+    gap: 10px;
+}
+.center{
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 500;
+}
+#shearch {
+    
+    border-radius: 20px;
+    border: none;
+    padding: 0 10px;
+    height: 29px;
+    margin-right: 4px;
 }
 
-
-a{
+a {
     font-style: none;
     text-decoration: none;
     color: black;

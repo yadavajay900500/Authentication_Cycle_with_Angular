@@ -15,13 +15,14 @@ export class TokenInterceptorService implements HttpInterceptor{
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     let authservice = this.inject.get(SignInSignUpService);
     let authreq = request;
-    const token:any = sessionStorage.getItem('TOKEN');
-    authreq = this.AddTokenheader(request, token);
+    // const token:any = sessionStorage.getItem('TOKEN');
+    // authreq = this.AddTokenheader(request, token);
     return next.handle(authreq).pipe(
       catchError(errordata => {
         if (errordata.status === 401) {
+          console.log("QQQQQQqq",errordata)
           // need to implement logout
-          this.rootService.logout();
+          // this.rootService.logout();
           // refresh token logic
          return this.handleRefrehToken(request, next);
         }
@@ -32,22 +33,28 @@ export class TokenInterceptorService implements HttpInterceptor{
 
   handleRefrehToken(request: HttpRequest<any>, next: HttpHandler) {
     let authservice = this.inject.get(SignInSignUpService);
-    return authservice.GenerateRefreshToken().pipe(
+    return authservice.GenerateRefreshToken()
+    .pipe(
       switchMap((data: any) => {
-        console.log("+++++++++++++",data)
-        this.rootService.setToken(data);
-        return next.handle(this.AddTokenheader(request,data.jwtToken))
+        console.log("datadatadatadata",data)
+        const accessToken=data.userData.TOKEN
+        const refreshToken=data.userData.refreshToken
+        this.rootService.setToken(accessToken);
+        this.rootService.setRefrshToken(refreshToken)
+        return next.handle(request)
       }),
       catchError(errodata=>{
-        this.rootService.logout();
+        // this.rootService.logout();
         return throwError(errodata)
       })
     );
   }
 
-  AddTokenheader(request: HttpRequest<any>, token: any) {
-    return request.clone({ headers: request.headers.set('Authorization', token) });
-  }
+  // AddTokenheader(request: HttpRequest<any>, next: HttpHandler) {
+  //   // return request.clone({ headers: request.headers.set('token', token) });
+  //   return next.handle(request);
+
+  // }
 
   
 }

@@ -13,10 +13,10 @@ const routes: Routes = [
     path: "", component: AdminDiplayComponent,canActivate: [AuthGuard]
   },
   {
-    path:"activeUser", component:UserListComponent,canActivate: [AuthGuard]
+    path:"activeUser", component:UserListComponent
   },
   {
-    path:"newRegister",component:NewUserListComponent,canActivate: [AuthGuard]
+    path:"newRegister",component:NewUserListComponent
   },
   {
     path:"todoList",component:ToDoListComponent,canActivate: [AuthGuard]

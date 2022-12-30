@@ -18,7 +18,6 @@ export class AdminService {
   }
   
   toDoListAdd(body: any) {
-    console.log("tootoo",body)
     return this.http.post(`${this.BASEURL}add`, body)
       .subscribe({
         next: (res: any) => {

@@ -45,7 +45,7 @@ export class SignInComponent implements OnInit {
       {
         email: ['yadavajay900500@gmail.com', [Validators.required, Validators.email]],
         password: [
-          '',
+          '123456',
           [
             Validators.required,
             Validators.minLength(6),
@@ -75,7 +75,7 @@ export class SignInComponent implements OnInit {
           console.log("Successfull Login !", res.userData)
           this.rootservice.setToken(res.userData.TOKEN)
           this.rootservice.setRefrshToken(res.userData.refreshToken)
-          this.rootService.setData(res.userData)
+          // this.rootService.setData(res.userData)
           const data = this.helper.decodeToken(res.userData.TOKEN);
           const  {roles} = data.data
 

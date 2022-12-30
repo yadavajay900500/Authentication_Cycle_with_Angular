@@ -16,7 +16,7 @@ export class NewUserListComponent implements OnInit {
   id: any;
   body: any;
   constructor(
-    private adminService: AdminService
+    private adminService: AdminService,
 
   ) {
 

@@ -20,38 +20,23 @@ export class AdminHomeComponent implements OnInit {
   ngOnInit(): void {
     const token: any = sessionStorage.getItem('TOKEN');
     const tokenData = this.helper.decodeToken(token);
-    console.log("????????",tokenData.data)
     var data=tokenData.data
 
-    // *************************
 
     this.adminData(data)
     console.log("tokenData",tokenData)
      const adminData= this.rootservice.getData().subscribe(translatedValue => { 
       const adminData=translatedValue
-
-      // const {id}=adminData
-      console.log("Admin DATA AAAAA",adminData)
-      // this.observer.next(translatedValue);
     });
-    //  const {source}=adminData
-    //  const {_value }=source
 
-    // **************
-    console.log("Admin Data",)
   }
  adminDetails:any
   adminData(body: any) {
-    // const email={email:body}
-
-    console.log("!!!!!!!!!!!!!!!!!!!!!!!",{email:body})
      this.http.post(`${this.BASEURL}adminData`, body).subscribe({
       next: (r: any) => {
         this.adminDetails = r
-        console.log("AAAAAAAAAAAAAAAAAAAAAAA",r)
       },
       error: (err) => {
-        
       }
     })
   }

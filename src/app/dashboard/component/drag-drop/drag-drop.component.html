@@ -1,44 +1,21 @@
 
 <h1> Uplaod your File or Folder</h1>
 
-<div class="dropzone">
- <mat-selection-list class="list">
-     <mat-list-option >
-                 <label for="file"><span class="textLink">Select your Folder</span> or Drop it here!</label>
-
-         <input
-          #folderInput type="file" 
-          (change)="filesPicked(folderInput.files)" 
-          webkitDirectory 
-          multiple
-         accept="/*.ts,.txt,.css,.html,.spec.ts">
-     </mat-list-option>
-     <mat-list-option >
+<div class="dropzone" fileDragDrop (filesChangeEmiter)="filesPicked($event)">
          <label for="file"><span class="textLink">Select your File</span> or Drop it here!</label>
          <input #fileField #fileInput type="file" (change)="filesPicked(fileInput.files)" multiple>
-
-     </mat-list-option>
-   </mat-selection-list>
-    
 </div>
    
-
-
-
-
-     
-
      <div>
          <mat-list>
              <h3 mat-subheader>Files</h3>
              <mat-list-item *ngFor="let file of fileFolderData">
                  <mat-icon mat-list-icon>folder</mat-icon>
-                 <h4 mat-line>{{file.name}}</h4>
+                 <h4 mat-line>{{file?.name}}</h4>
                  <h5>{{file?.type}} </h5>
                  <p class="size">
                      {{ formatBytes(file?.size) }}
                    </p>
-                 <!-- <button mat-raised-button color="warn" (click)="deleteFile(file)">Delete</button> -->
                  <mat-divider></mat-divider>
              </mat-list-item>
          </mat-list>

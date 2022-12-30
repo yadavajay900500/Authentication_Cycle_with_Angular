@@ -14,35 +14,15 @@ export class DragDropComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  fileName: any[] = [];
-  dataSource: any;
   
   fileFolderData: any[] = []
-  filesPicked(files: any) {
-    // const items = event.eventPhase
-    // const entry = files.webkitGetAsEntry();
+   filesPicked(files: any) {
     this.fileFolderData = files
-    console.log("QWWWWWWWWWWWWWWWWWWWWWWWWW", this.fileFolderData)
-
-    for (let i = 0; i < files.length; i++) {
-      const file = files[i];
-      // const path = file.webkitRelativePath.split('/');
-      const path = file.webkitRelativePath;
-      // console.log("QQQQQQQQQQ", path)
-      this.fileName.push(path)
-
-    }
-
 
   }
 
-  deleteFile(index: any) {
-   
-    this._snackBar.open("Successfully delete!", 'Close', {
-      duration: 2000,
-    });
-  }
-
+  
+  
 
 
   formatBytes(bytes: any, decimals = 2) {

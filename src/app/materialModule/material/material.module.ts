@@ -28,7 +28,8 @@ const materialComponent=[
   MatTableModule,
   MatSnackBarModule,
   MatCheckboxModule,
-  MatSelectModule
+  MatSelectModule,
+  
 ]
 
 @NgModule({
