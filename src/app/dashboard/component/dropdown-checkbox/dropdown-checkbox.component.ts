@@ -44,7 +44,6 @@ export class DropdownCheckboxComponent  {
   }
    optionClick(body:any) {
     let newStatus = true;
-    // console.log("))))))))))",this.select.value)
     this.select.options.forEach((item: MatOption) => {
       if (!item.selected) {
         newStatus = false;

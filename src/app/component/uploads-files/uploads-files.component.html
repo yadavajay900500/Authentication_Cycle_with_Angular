@@ -1,14 +1,16 @@
+<p>uploads-files works!</p>
+
 
 <h1> Uplaod your File or Folder</h1>
 
-<div class="dropzone" fileDragDrop (filesChangeEmiter)="filesPicked($event)">
+<div class="dropzone" appFolderDragDrop (dropped)="filesPicked($event)">
          <label for="file"><span class="textLink">Select your File</span> or Drop it here!</label>
-         <input #fileField 
-         #fileInput 
-         type="file" 
-         (change)="filesPicked(fileInput.files)"
-         accept="/*.ts,.txt,.css,.html,.spec.ts"
-          multiple>
+         <input
+          #fileField 
+          #fileInput 
+          type="file"
+           (change)="filesPicked(fileInput.files)" 
+           multiple>
 </div>
    
      <div>
@@ -16,10 +18,8 @@
              <h3 mat-subheader>Files</h3>
              <mat-list-item *ngFor="let file of fileFolderData">
                  <mat-icon mat-list-icon>folder</mat-icon>
-                 <h4 mat-line >{{file?.name}}</h4>
-                 <h4 mat-line ></h4>
+                 <h4 mat-line>{{file?.name}}</h4>
                  <h5>{{file?.type}} </h5>
-                 <!-- <h5>{{fileExtension(file?.name)}} </h5> -->
                  <p class="size">
                      {{ formatBytes(file?.size) }}
                    </p>

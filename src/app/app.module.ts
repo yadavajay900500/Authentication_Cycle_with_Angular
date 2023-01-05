@@ -25,6 +25,15 @@ import { AllSelectComponent } from './component/all-select/all-select.component'
 import { httpInterceptorProviders } from './_interceptor';
 import { SharedModuleModule } from './_sharedModule/shared-module/shared-module.module';
 import { LoaderComponent } from './component/loader/loader.component';
+import { SignInSignUpService } from './_services/sign-in-sign-up.service';
+import { FolderDragDropDirective } from './folder-drag-drop.directive';
+import { UploadsFilesComponent } from './component/uploads-files/uploads-files.component';
+import { AreaChartComponent } from './component/widgets/area-chart/area-chart.component';
+import { MapChartComponent } from './component/widgets/map-chart/map-chart.component';
+import { HighchartsChartModule } from 'highcharts-angular';
+import { PieChartComponent } from './component/widgets/pie-chart/pie-chart.component';
+import { CardChartComponent } from './component/widgets/card-chart/card-chart.component';
+import { IndiaMapChartComponent } from './component/widgets/india-map-chart/india-map-chart.component';
 
 
 @NgModule({
@@ -40,6 +49,13 @@ import { LoaderComponent } from './component/loader/loader.component';
     PasswordStrengthCustomComponent,
     AllSelectComponent,
     LoaderComponent,
+    FolderDragDropDirective,
+    UploadsFilesComponent,
+    AreaChartComponent,
+    MapChartComponent,
+    PieChartComponent,
+    CardChartComponent,
+    IndiaMapChartComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,12 +67,14 @@ import { LoaderComponent } from './component/loader/loader.component';
     MdbModalModule,
     FormsModule,
     SharedModuleModule,
+    HighchartsChartModule
 
   ],
   
   providers: [
      // Tell angular to use this interceptor
-     httpInterceptorProviders
+     httpInterceptorProviders, 
+     SignInSignUpService
   ],
   bootstrap: [AppComponent]
 })

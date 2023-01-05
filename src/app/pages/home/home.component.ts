@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SignInSignUpService } from 'src/app/_services/sign-in-sign-up.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private signInsignUpService:SignInSignUpService) { }
 
+  pieChart:any=[]
   ngOnInit(): void {
+    this.pieChart=this.signInsignUpService.pieChart()
   }
+
+
 
 }

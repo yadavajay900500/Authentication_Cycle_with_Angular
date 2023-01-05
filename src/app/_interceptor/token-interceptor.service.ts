@@ -36,6 +36,7 @@ export class TokenInterceptorService implements HttpInterceptor{
         const refreshToken=data.userData.refreshToken
         this.rootService.setToken(accessToken);
         this.rootService.setRefrshToken(refreshToken)
+        location.reload()
         return next.handle(request)
       }),
       catchError(errodata=>{

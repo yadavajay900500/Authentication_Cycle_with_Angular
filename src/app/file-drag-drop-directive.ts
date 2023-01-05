@@ -46,7 +46,7 @@ export class FileDragNDropDirective {
      setTimeout(()=>{
       let valid_files: Array<File> = FileDragNDropDirective.files;
        this.filesChangeEmiter.emit(valid_files);
-    
+
      },1000)
   }
 
@@ -57,6 +57,7 @@ export class FileDragNDropDirective {
       item.file(function (fileItem: any) {
          FileDragNDropDirective.files.push(fileItem)
       });
+
     } else if (item.isDirectory) {
       let dirReader = item.createReader();
       dirReader.readEntries(function (entries: any) {
@@ -66,4 +67,81 @@ export class FileDragNDropDirective {
       });
     }
   }
+
+
+  // *******************************************************
+
+  // @HostListener('drop', ['$event']) public async onDrop(evt: any) {
+  //   evt.preventDefault();
+  //   evt.stopPropagation();
+  //   this.background = '#eee';
+  //   this.borderColor = '#696D7D';
+  //   this.borderStyle = '2px dashed';
+
+
+  //   let files: Array<File> = [];
+  //   let file: Array<File> = [];
+
+  //   let items = evt.dataTransfer.items;
+  //   for (let i = 0; i < items.length; i++) {
+  //     let item = items[i].webkitGetAsEntry();
+  //     if (item) {
+  //       let fileDetails: any = await traverseFileTree(item);
+  //      let s= this.getFile(fileDetails)
+
+  //       console.log(">>>>>>>>>>>>>>", s)
+  //       //  this.emitData(fileDetails)
+  //       // file = fileDetails
+  //     }
+
+
+
+  //   }
+  //   let ff: Array<File> = [];
+
+  //   async function traverseFileTree(item: any, path?: any) {
+  //     path = path || ''
+  //     if (item.isFile) {
+
+  //       try {
+  //         return await new Promise((resolve, reject) =>
+  //         item.file(resolve, reject)
+  //         );
+  //       } catch (err) {
+  //         console.log(err);
+  //       }
+  //       // item.file(function (fileItem: any) {
+  //       //   files.push(fileItem)
+  //       // });
+  //        ff=item.file()
+  //     } else if (item.isDirectory) {
+  //       let dirReader = item.createReader();
+  //       dirReader.readEntries(function (entries: any) {
+  //         for (let i = 0; i < entries.length; i++) {
+  //           traverseFileTree(entries[i], path + item.name + "/");
+  //         }
+  //       });
+  //     }
+  //     return ff;
+  //   }
+  // }
+
+
+  //  async getFile(fileEntry: any) {
+  //   // console.log("????????????????????",fileEntry)
+  //   try {
+  //     return await new Promise((resolve, reject) =>
+  //       fileEntry.file(resolve, reject)
+  //     );
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // }
+  async emitData( file: any) {
+    let valid_files: Array<File> = file;
+    await this.filesChangeEmiter.emit(valid_files);
+  }
+
+
+
 }

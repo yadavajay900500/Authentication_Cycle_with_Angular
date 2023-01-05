@@ -7,6 +7,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { AuthGuard } from './_authGuard/auth.guard';
 import { AdminProfileComponent } from './pages/admin-profile/admin-profile.component';
 import { AdminHomeComponent } from './dashboard/pages/admin-home/admin-home.component';
+import { UploadsFilesComponent } from './component/uploads-files/uploads-files.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,9 @@ const routes: Routes = [
      path:"" 
     }],
   },
+  {
+    path:"uploadFile",component:UploadsFilesComponent
+  }
  
 ];
 
