@@ -17,97 +17,18 @@ export class PieChartComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log("+++++++=====", this.data)
     this.chartOptions = {
-      chart: {
-        plotBackgroundColor: null,
-        plotBorderWidth: null,
-        plotShadow: false,
-        type: this.data.chart.type,
-      },
-      title: {
-        text: this.data.title.text,
-      },
-      subtitle: {
-        text: this.data.subtitle.text
-      },
-      xAxis: {
-        allowDecimals: false,
-        title: {
-          text: this.data.xAxis.title.text
-        },
-        labels: {
-          formatter: function () {
-            let result = this
-            type Object = keyof typeof result;
-            const val = 'value' as Object
-            return result[val];
-          }
-        },
-        accessibility: {
-          rangeDescription: this.data.accessibility.rangeDescription
-        }
-      },
-      yAxis: {
-        title: {
-          text:this.data.yAxis.title.text
-        },
-        labels: {
-          formatter: function () {
-            const result = this;
-            type Object = keyof typeof result;
-            const val = 'value' as Object
-            return result[val];
-          }
-        }
-      },
-      tooltip: {
-        pointFormat: this.data.tooltip.pointFormat
-      },
-      plotOptions: {
-        area: {
-          pointStart: 1940,
-          marker: {
-            enabled: false,
-            symbol: 'circle',
-            radius: 2,
-            states: {
-              hover: {
-                enabled: true
-              }
-            }
-          }
-        }
-      },
-      accessibility: {
-        description: '',
-        point: {
-          valueSuffix: this.data.accessibility.point.valueSuffix,
-        },
-    },
-      // plotOptions: {
-      //   pie: {
-      //     allowPointSelect: true,
-      //     cursor: "pointer",
-      //     dataLabels: {
-      //       enabled: true,
-      //       format: "<b>{point.name}</b>: {point.percentage:.1f} %",
-      //     },
-      //   },
-      // },
-      exporting: {
-        enabled: false,
-      },
-      credits: {
-        enabled: false,
-      },
-      series: [
-        {
-          name: this.data.series[0].name,
-          colorByPoint: true,
-          data: this.data.series[0].data
-        },
-      ],
+      chart: this.data.chart,
+      title: this.data.title || null,
+      subtitle:this.data.subtitle,
+      xAxis: this.data.xAxis || null,
+      yAxis: this.data.yAxis || null,
+      tooltip: this.data.tooltip || null,
+      plotOptions:this.data.plotOptions,
+      accessibility: this.data.accessibility,
+      exporting: this.data.exporting,
+      credits:this.data.credits,
+      series:this.data.series || null
     };
 
     HC_exporting(Highcharts);

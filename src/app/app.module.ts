@@ -31,7 +31,6 @@ import { UploadsFilesComponent } from './component/uploads-files/uploads-files.c
 import { AreaChartComponent } from './component/widgets/area-chart/area-chart.component';
 import { MapChartComponent } from './component/widgets/map-chart/map-chart.component';
 import { HighchartsChartModule } from 'highcharts-angular';
-import { PieChartComponent } from './component/widgets/pie-chart/pie-chart.component';
 import { CardChartComponent } from './component/widgets/card-chart/card-chart.component';
 import { IndiaMapChartComponent } from './component/widgets/india-map-chart/india-map-chart.component';
 
@@ -53,7 +52,6 @@ import { IndiaMapChartComponent } from './component/widgets/india-map-chart/indi
     UploadsFilesComponent,
     AreaChartComponent,
     MapChartComponent,
-    PieChartComponent,
     CardChartComponent,
     IndiaMapChartComponent,
   ],
@@ -67,7 +65,7 @@ import { IndiaMapChartComponent } from './component/widgets/india-map-chart/indi
     MdbModalModule,
     FormsModule,
     SharedModuleModule,
-    HighchartsChartModule
+    // HighchartsChartModule
 
   ],
   

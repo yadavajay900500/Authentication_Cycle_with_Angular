@@ -13,6 +13,7 @@ import { DropdownCheckboxComponent } from './component/dropdown-checkbox/dropdow
 import { DragDropComponent } from './component/drag-drop/drag-drop.component';
 import { SharedModuleModule } from '../_sharedModule/shared-module/shared-module.module';
 import { AdminDiplayComponent } from './pages/admin-diplay/admin-diplay.component';
+import { ChartsComponent } from './pages/charts/charts.component';
 
 
 
@@ -26,6 +27,7 @@ import { AdminDiplayComponent } from './pages/admin-diplay/admin-diplay.componen
         AdminDiplayComponent,
         NewUserListComponent,
         ToDoListComponent,
+        ChartsComponent,
         
     ],
     imports: [

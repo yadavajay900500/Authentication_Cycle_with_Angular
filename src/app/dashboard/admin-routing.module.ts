@@ -4,6 +4,7 @@ import { AuthGuard } from '../_authGuard/auth.guard';
 import { DragDropComponent } from './component/drag-drop/drag-drop.component';
 import { AdminDiplayComponent } from './pages/admin-diplay/admin-diplay.component';
 import { AdminHomeComponent } from './pages/admin-home/admin-home.component';
+import { ChartsComponent } from './pages/charts/charts.component';
 import { NewUserListComponent } from './pages/new-user-list/new-user-list.component';
 import { ToDoListComponent } from './pages/to-do-list/to-do-list.component';
 import { UserListComponent } from './pages/user-list/user-list.component';
@@ -23,6 +24,9 @@ const routes: Routes = [
   },
   {
      path:"uploadFile",component:DragDropComponent,canActivate:[AuthGuard]
+  },
+  {
+    path:"highchart", component:ChartsComponent
   }
 ];
 

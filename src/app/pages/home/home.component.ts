@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
 
   pieChart:any=[]
   ngOnInit(): void {
-    this.pieChart=this.signInsignUpService.pieChart()
+    this.pieChart=this.signInsignUpService.highcharts()
   }
 
 

@@ -38,7 +38,7 @@ export class SignInSignUpService {
   }
   // =================================================
 
-  pieChart(){
+  highcharts(){
 
      let options = {
       chart: {
@@ -118,7 +118,8 @@ export class SignInSignUpService {
               10577, 10527, 10475, 10421, 10358, 10295, 10104, 9914, 9620, 9326,
               5113, 5113, 4954, 4804, 4761, 4717, 4368, 4018,4025
           ]
-      }, {
+      },
+       {
           name: 'Russia',
           data: [null, null, null, null, null, null, null, null, null, null,
               5, 25, 50, 120, 150, 200, 426, 660, 869, 1060,
@@ -129,56 +130,109 @@ export class SignInSignUpService {
               21000, 20000, 19000, 18000, 18000, 17000, 16000, 15537, 14162, 12787,
               12600, 11400, 5500, 4512, 4502, 4502, 4500, 4500,4100
           ]
-      }]
+      },
+      {
+        name: 'India',
+        data: [
+            5, 25, 50, 120, 150, 207, 426, 660, 869, 1060,
+            1600, 2471, 3322, 4238, 5221, 6129, 7089, 8339, 9399, 10538,
+            11643, 13092, 14478, 15915, 17385, 19055, 21205, 23044, 25393, 27935,
+            30062, 32049, 33952, 35804, 37431, 39197, 45000, 43000, 41000, 39000,
+            
+        ]
+    }
+    ]
     }
 
     return options
   }
  
-  // pieChart() {
-  //   return {
-  //     text:"BROWSERS: MARKET SHARE",
-  //     type:"column",
-  //     data: [
-  //       {
-  //         name: "Chrome",
-  //         y: 61.41,
-  //         sliced: true,
-  //         selected: true,
-  //       },
-  //       {
-  //         name: "Internet Explorer",
-  //         y: 11.84,
-  //       },
-  //       {
-  //         name: "Firefox",
-  //         y: 10.85,
-  //       },
-  //       {
-  //         name: "Edge",
-  //         y: 4.67,
-  //       },
-  //       {
-  //         name: "Safari",
-  //         y: 4.18,
-  //       },
-  //       {
-  //         name: "Sogou Explorer",
-  //         y: 1.64,
-  //       },
-  //       {
-  //         name: "Opera",
-  //         y: 1.6,
-  //       },
-  //       {
-  //         name: "QQ",
-  //         y: 1.2,
-  //       },
-  //       {
-  //         name: "Other",
-  //         y: 2.61,
-  //       },
-  //     ]
-  //   }
-  // }
+  pieChart() {
+   
+    let options  = {
+      chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false,
+        type: "pie",
+      },
+      title: {
+        text: "BROWSERS: MARKET SHARE",
+      },
+      tooltip: {
+        pointFormat: "{series.name}: <b>{point.percentage:.1f}%</b>",
+      },
+      accessibility: {
+        point: {
+          valueSuffix: "%",
+        },
+      },
+      plotOptions: {
+        pie: {
+          allowPointSelect: true,
+          cursor: "pointer",
+          dataLabels: {
+            enabled: true,
+            format: "<b>{point.name}</b>: {point.percentage:.1f} %",
+          },
+        },
+      },
+      exporting: {
+        enabled: false,
+      },
+      credits: {
+        enabled: false,
+      },
+      series: [
+        {
+          name: "Brands",
+          colorByPoint: true,
+          data: [
+            {
+              name: "Chrome",
+              y: 61.41,
+              sliced: true,
+              selected: true,
+            },
+            {
+              name: "Internet Explorer",
+              y: 11.84,
+            },
+            {
+              name: "Firefox",
+              y: 10.85,
+            },
+            {
+              name: "Edge",
+              y: 4.67,
+            },
+            {
+              name: "Safari",
+              y: 4.18,
+            },
+            {
+              name: "Sogou Explorer",
+              y: 1.64,
+            },
+            {
+              name: "Opera",
+              y: 1.6,
+            },
+            {
+              name: "QQ",
+              y: 1.2,
+            },
+            {
+              name: "Other",
+              y: 2.61,
+            },
+          ],
+        },
+      ],
+    };
+    
+
+    return options;
+  }
 }
+
