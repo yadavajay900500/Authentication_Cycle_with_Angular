@@ -16,19 +16,17 @@ import { JwtHelperService } from "@auth0/angular-jwt";
 export class SignInComponent implements OnInit {
 
   helper = new JwtHelperService();
-
   login: FormGroup = new FormGroup({
-    
     email: new FormControl(''),
     password: new FormControl(''),
-  
   });
+
   submitted = false;
   loginValid = true;
-  showPassword =false;
-
+  showPassword = false;
   rootservice: any
   BASEURL: string;
+
   constructor(private formBuilder: FormBuilder,
     private signInService: SignInSignUpService,
     private http: HttpClient, private router: Router,
@@ -38,29 +36,27 @@ export class SignInComponent implements OnInit {
     this.BASEURL = AppService.BASEURL
   }
 
-
   ngOnInit(): void {
     this.login = this.formBuilder.group(
       {
         email: ['yadavajay900500@gmail.com', [Validators.required, Validators.email]],
         password: [
-          '123456',
+          '@Jite1234',
           [
             Validators.required,
             Validators.minLength(6),
             Validators.maxLength(40)
           ]
         ],
-
-       
       },
-
     );
   }
 
   get f(): { [key: string]: AbstractControl } {
     return this.login.controls;
   }
+  errorMessage:any;
+   counter=0;
 
   OnSubmit(body: any): void {
     this.submitted = true;
@@ -70,11 +66,11 @@ export class SignInComponent implements OnInit {
     this.signInService.userSignIn(body)
       .subscribe({
         next: (res: any) => {
+          console.log(">>>>>>", res)
           this.rootservice.setToken(res.userData.TOKEN)
           this.rootservice.setRefrshToken(res.userData.refreshToken)
           const data = this.helper.decodeToken(res.userData.TOKEN);
-          const  {roles} = data.data
-
+          const { roles } = data.data
           if (roles[1] === "admin") {
             this.router.navigateByUrl("/admin")
           } else {
@@ -82,17 +78,27 @@ export class SignInComponent implements OnInit {
           }
         },
         error: (e) => {
+          console.log(">>>>>>", e)
+          if(e.status==429){
+              this.errorMessage=e.error.message
+              // setInterval(()=>{
+              //   this.counter +=1
+              // },1000)
+
+          }
+          console.log(this.counter)
           this.router.navigateByUrl('/signIn');
         }
       })
   }
 
+
   onReset(): void {
     this.submitted = false;
     this.login.reset();
   }
-  
-  togglePasswordVisibility(){
+
+  togglePasswordVisibility() {
     this.showPassword = !this.showPassword;
   }
 

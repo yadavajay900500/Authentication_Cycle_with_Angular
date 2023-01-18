@@ -3,6 +3,7 @@ import { AbstractControl, ValidatorFn } from '@angular/forms';
 export default class Validation {
   static match(controlName: string, checkControlName: string): ValidatorFn {
     return (controls: AbstractControl) => {
+      // console.log(">>>>>>>>>>>>>>>>>",controls)
       const control = controls.get(controlName);
       const checkControl = controls.get(checkControlName);
       if (checkControl?.errors && !checkControl.errors['matching']) {

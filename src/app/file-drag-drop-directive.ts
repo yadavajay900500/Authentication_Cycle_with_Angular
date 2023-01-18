@@ -35,7 +35,6 @@ export class FileDragNDropDirective {
     this.background = '#eee';
     this.borderColor = '#696D7D';
     this.borderStyle = '2px dashed';
-
     let items = evt.dataTransfer.items;
     for (let i = 0; i < items.length; i++) {
       let item = items[i].webkitGetAsEntry();

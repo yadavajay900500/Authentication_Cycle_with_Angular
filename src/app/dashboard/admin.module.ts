@@ -14,6 +14,7 @@ import { DragDropComponent } from './component/drag-drop/drag-drop.component';
 import { SharedModuleModule } from '../_sharedModule/shared-module/shared-module.module';
 import { AdminDiplayComponent } from './pages/admin-diplay/admin-diplay.component';
 import { ChartsComponent } from './pages/charts/charts.component';
+import { AdminRightSidebarComponent } from './component/admin-right-sidebar/admin-right-sidebar.component';
 
 
 
@@ -28,6 +29,7 @@ import { ChartsComponent } from './pages/charts/charts.component';
         NewUserListComponent,
         ToDoListComponent,
         ChartsComponent,
+        AdminRightSidebarComponent,
         
     ],
     imports: [

@@ -62,10 +62,16 @@ export class SignInSignUpService {
             text: 'cold War'
         },
           labels: {
+          //   formatter: function () {
+          //     return this.value; // clean, unformatted number for year
+          // }
               formatter: function () {
                 let result=this
                 type Object=  keyof typeof result;
                 const val='value' as Object
+                const d=result[val]
+                console.log("|||||||||||||||||||||||||",d)
+
                 return result[val];
               }
           },
@@ -80,6 +86,9 @@ export class SignInSignUpService {
               text: 'Nuclear weapon states'
           },
           labels: {
+          //   formatter: function () {
+          //     return this.value / 1000 + 'k';
+          // }
               formatter: function () {
                  const result=this;
                  type Object=keyof typeof result;
@@ -138,6 +147,11 @@ export class SignInSignUpService {
             1600, 2471, 3322, 4238, 5221, 6129, 7089, 8339, 9399, 10538,
             11643, 13092, 14478, 15915, 17385, 19055, 21205, 23044, 25393, 27935,
             30062, 32049, 33952, 35804, 37431, 39197, 45000, 43000, 41000, 39000,
+            660, 869, 1060,
+            1600, 2471, 3322, 4238, 5221, 6129, 7089, 8339, 9399, 10538,
+            11643, 13092, 14478, 15915, 17385, 19055, 21205, 13092, 14478, 15915, 17385, 19055, 21205, 23044, 25393, 27935,
+            30062, 32049, 33952, 35804, 37431, 39197, 45000, 43000, 41000, 39000,
+            660, 869, 1060,
             
         ]
     }

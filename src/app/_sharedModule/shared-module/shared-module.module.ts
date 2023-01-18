@@ -14,6 +14,7 @@ const sharedComponent=[
     FileDragNDropDirective,
     DragDropComponent,
     PieChartComponent,
+    
 
 ]
 

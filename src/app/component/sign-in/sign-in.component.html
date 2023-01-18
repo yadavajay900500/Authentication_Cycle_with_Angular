@@ -8,7 +8,6 @@
                 </mat-error>
                 <mat-form-field appearance="outline">
                     <input matInput type="email" placeholder="Email" formControlName="email" name="email" required>
-
                     <mat-error *ngIf="submitted && f['email'].errors">
                         <div *ngIf="f['email'].errors['required']">Email is required</div>
                         <div *ngIf="f['email'].errors['pattern']">example: abc@example.com</div>
@@ -20,17 +19,18 @@
                     </mat-icon>
                     <input matInput [type]="showPassword ? 'text' : 'password'" placeholder="Password"
                         formControlName="password" name="password" required>
-
-
                     <mat-error *ngIf="submitted && f['password'].errors">
                         <div *ngIf="f['password'].errors['required']">Password is required</div>
                         <div *ngIf="f['password'].errors['minlength']">
                             Password must be at least 6 characters
                         </div>
-
                     </mat-error>
                 </mat-form-field>
-
+                <div class="error429">
+                    <p>
+                        {{errorMessage}} 
+                    </p>
+                </div>
                 <button mat-raised-button color="warn">Login</button>
             </form>
         </mat-card-content>

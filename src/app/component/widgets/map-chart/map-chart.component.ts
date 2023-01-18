@@ -276,16 +276,16 @@ export class MapChartComponent implements OnInit {
       {
         // Specify points using lat/lon
         type: "mappoint",
-        name: "Canada cities",
+        name: "India cities",
         marker: {
           radius: 5,
           fillColor: "tomato"
         },
         data: [
           {
-            name: "Vancouver",
-            lat: 49.246292,
-            lon: -123.116226
+            name: "Mumbai",
+            lat: 19.076090, //Latitude
+            lon: 72.877426  // Longitude
           },
           {
             name: "Quebec City",
